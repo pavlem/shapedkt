@@ -66,6 +66,8 @@ open class Client {
         }
 
         let task = self.session.dataTask(with: urlRequest) { (data, urlResponse, error) in
+            self.logResponse(data: data, httpResponse: urlResponse, error: error)
+            
             guard let urlResponse = urlResponse as? HTTPURLResponse else {
                 if let error = error {
                     completion(.failure(.network(error, 0)))
@@ -118,6 +120,8 @@ open class Client {
             }
         }
         
+        urlRequest.log()
+        
         task.resume()
         return task
     }
@@ -134,5 +138,44 @@ extension Client.Error {
         default:
             return 0
         }
+    }
+}
+
+
+extension Client {
+    func logResponse(data: Data?, httpResponse: URLResponse?, error: Swift.Error?) {
+        print("⏪⏪⏪⏪⏪⏪⏪")
+        print("data: \n\(String(describing: data))\n")
+        print("response: \n\(String(describing: httpResponse))\n")
+        print("error: \n\(String(describing: error))\n")
+        
+        guard let data = data else {
+            print("⏪⏪⏪⏪⏪⏪⏪")
+            return
+        }
+        
+        if let json = ((try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]) as [String : Any]??) { print("json: \n\(json ?? ["": ""])\n") }
+        print("⏪⏪⏪⏪⏪⏪⏪")
+    }
+}
+
+extension Data {
+    func toString() -> String? {
+        return String(data: self, encoding: .utf8)
+    }
+}
+
+extension URLRequest {
+    func log() {
+        print("⏩⏩⏩⏩⏩⏩⏩")
+        print("METHOD: \(httpMethod ?? "")")
+        print("URL: \(self)")
+        if let body = httpBody {
+            print("BODY: \n \(body.toString() ?? "")")
+        } else {
+            print("BODY: None")
+        }
+        print("HEADERS: \n \(allHTTPHeaderFields ?? ["":""])")
+        print("⏩⏩⏩⏩⏩⏩⏩")
     }
 }

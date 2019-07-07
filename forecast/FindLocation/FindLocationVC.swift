@@ -61,11 +61,13 @@ final class FindLocationVC: UIViewController {
         let newCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom:self.mapView)
         
         print(newCoordinate)
-        
-        //
-//         output.locationSelected(at: CLLocationCoordinate2D)
+        self.output.locationSelected(at: newCoordinate)
     }
     
 }
 
-extension FindLocationVC: FindLocationPresenterOutput {}
+extension FindLocationVC: FindLocationPresenterOutput {
+    func pajaInVC() {
+        aprint("pajaInVC()")
+    }
+}

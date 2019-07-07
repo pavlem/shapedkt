@@ -20,4 +20,16 @@ extension CurrentWeather {
             needsAuthorization: true
         )
     }
+    
+    
+    public static func getCurrent(forLatitude latitude: String, longitude: String) -> Request<CurrentWeather, APIError> {
+        return Request(
+            url: URL(string: "weather")!,
+            method: .get,
+            parameters: [QueryParameters([URLQueryItem(name: "lat", value: latitude), URLQueryItem(name: "lon", value: longitude)])],
+            resource: decodeResource(CurrentWeather.self),
+            error: APIError.init,
+            needsAuthorization: true
+        )
+    }
 }
