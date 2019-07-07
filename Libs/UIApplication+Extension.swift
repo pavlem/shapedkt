@@ -1,10 +1,8 @@
-//
 //  UIApplication+Extension.swift
-//  ScanAndGo
+//  forecast
 //
-//  Created by Pavle Mijatovic on 4/5/19.
-//  Copyright © 2019 Salling Group. All rights reserved.
-//
+//  Created by Pavle Mijatovic on 7/7/19.
+//  Copyright © 2019 SHAPE A/S. All rights reserved.
 
 import UIKit
 

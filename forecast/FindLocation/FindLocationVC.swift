@@ -61,7 +61,11 @@ final class FindLocationVC: UIViewController {
         let newCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom:self.mapView)
         
         print(newCoordinate)
-        self.output.locationSelected(at: newCoordinate)
+        
+//        let weatherVC = UIStoryboard.weatherVC
+//        self.navigationController?.pushViewController(weatherVC, animated: true)
+        
+//        self.output.locationSelected(at: newCoordinate)
     }
     
 }
