@@ -66,8 +66,18 @@ final class FindLocationVC: BaseVC {
         let touchPoint = gesture.location(in: self.mapView)
         let newCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
         print(newCoordinate)
+        print(newCoordinate.latitude)
+        print(newCoordinate.longitude)
         
-        self.showShapeAlert(text: "test")
+//        self.showShapeAlert(text: "test")
+        
+        
+        let paja = CLLocationCoordinate2D(latitude: -9.960892521935094, longitude: -71.81640625000004)
+        aprint(paja)
+        
+        
+        let coordAsString = Coordinates(clLocationCoordinate2D: newCoordinate)
+        aprint(coordAsString)
         
 //        let weatherVC = UIStoryboard.weatherVC
 //        self.navigationController?.pushViewController(weatherVC, animated: true)
@@ -75,6 +85,22 @@ final class FindLocationVC: BaseVC {
 //        self.output.locationSelected(at: newCoordinate)
     }
     
+}
+
+struct Coordinates {
+    
+    let latitude: String?
+    let longitude: String?
+    
+    init(clLocationCoordinate2D: CLLocationCoordinate2D) {
+        latitude = String(clLocationCoordinate2D.latitude)
+        longitude = String(clLocationCoordinate2D.longitude)
+    }
+    
+    init(latitude: String, longitude: String) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
 }
 
 extension FindLocationVC: FindLocationPresenterOutput {

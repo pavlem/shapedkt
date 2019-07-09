@@ -35,6 +35,7 @@
 		3689B235221C04CE00E50ED5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689B234221C04CE00E50ED5 /* Weather.swift */; };
 		3689B237221C05F300E50ED5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689B236221C05F300E50ED5 /* APIError.swift */; };
 		3689B23D221C0C7800E50ED5 /* DecodeResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689B23C221C0C7800E50ED5 /* DecodeResource.swift */; };
+		8E471BBC22D4781E008F9273 /* forecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471BBB22D4781E008F9273 /* forecastTests.swift */; };
 		8EF6EB4E22D28AD6001CA073 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6EB4D22D28AD6001CA073 /* UIApplication+Extension.swift */; };
 		8EF6EB5422D28D10001CA073 /* Weather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF6EB5322D28D10001CA073 /* Weather.storyboard */; };
 		8EF6EB5C22D28DA1001CA073 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6EB5B22D28DA1001CA073 /* WeatherVC.swift */; };
@@ -83,6 +84,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3689B223221C03BB00E50ED5;
 			remoteInfo = Entities;
+		};
+		8E471BBE22D4781E008F9273 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3689B1C2221BE67C00E50ED5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3689B1C9221BE67C00E50ED5;
+			remoteInfo = forecast;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -133,6 +141,9 @@
 		3689B234221C04CE00E50ED5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		3689B236221C05F300E50ED5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3689B23C221C0C7800E50ED5 /* DecodeResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeResource.swift; sourceTree = "<group>"; };
+		8E471BB922D4781E008F9273 /* forecastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = forecastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E471BBB22D4781E008F9273 /* forecastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forecastTests.swift; sourceTree = "<group>"; };
+		8E471BBD22D4781E008F9273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EF6EB4D22D28AD6001CA073 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		8EF6EB5322D28D10001CA073 /* Weather.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Weather.storyboard; sourceTree = "<group>"; };
 		8EF6EB5B22D28DA1001CA073 /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
@@ -178,6 +189,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8E471BB622D4781E008F9273 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -193,6 +211,7 @@
 				8EF6EB4C22D28AA4001CA073 /* Libs */,
 				8EF6EB6D22D290A8001CA073 /* Sections */,
 				8EF6EB4F22D28B61001CA073 /* Resources */,
+				8E471BBA22D4781E008F9273 /* forecastTests */,
 				3689B1CB221BE67C00E50ED5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -204,6 +223,7 @@
 				3689B1F1221BF51600E50ED5 /* API.framework */,
 				3689B204221BF5F000E50ED5 /* Client.framework */,
 				3689B224221C03BB00E50ED5 /* Entities.framework */,
+				8E471BB922D4781E008F9273 /* forecastTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -296,6 +316,15 @@
 				3689B234221C04CE00E50ED5 /* Weather.swift */,
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		8E471BBA22D4781E008F9273 /* forecastTests */ = {
+			isa = PBXGroup;
+			children = (
+				8E471BBB22D4781E008F9273 /* forecastTests.swift */,
+				8E471BBD22D4781E008F9273 /* Info.plist */,
+			);
+			path = forecastTests;
 			sourceTree = "<group>";
 		};
 		8EF6EB4C22D28AA4001CA073 /* Libs */ = {
@@ -471,13 +500,31 @@
 			productReference = 3689B224221C03BB00E50ED5 /* Entities.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		8E471BB822D4781E008F9273 /* forecastTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E471BC022D4781E008F9273 /* Build configuration list for PBXNativeTarget "forecastTests" */;
+			buildPhases = (
+				8E471BB522D4781E008F9273 /* Sources */,
+				8E471BB622D4781E008F9273 /* Frameworks */,
+				8E471BB722D4781E008F9273 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E471BBF22D4781E008F9273 /* PBXTargetDependency */,
+			);
+			name = forecastTests;
+			productName = forecastTests;
+			productReference = 8E471BB922D4781E008F9273 /* forecastTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3689B1C2221BE67C00E50ED5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "SHAPE A/S";
 				TargetAttributes = {
@@ -496,6 +543,10 @@
 					3689B223221C03BB00E50ED5 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+					};
+					8E471BB822D4781E008F9273 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 3689B1C9221BE67C00E50ED5;
 					};
 				};
 			};
@@ -516,6 +567,7 @@
 				3689B1F0221BF51600E50ED5 /* API */,
 				3689B203221BF5F000E50ED5 /* Client */,
 				3689B223221C03BB00E50ED5 /* Entities */,
+				8E471BB822D4781E008F9273 /* forecastTests */,
 			);
 		};
 /* End PBXProject section */
@@ -546,6 +598,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3689B222221C03BB00E50ED5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E471BB722D4781E008F9273 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -610,6 +669,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8E471BB522D4781E008F9273 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E471BBC22D4781E008F9273 /* forecastTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -637,6 +704,11 @@
 			isa = PBXTargetDependency;
 			target = 3689B223221C03BB00E50ED5 /* Entities */;
 			targetProxy = 3689B23A221C06A300E50ED5 /* PBXContainerItemProxy */;
+		};
+		8E471BBF22D4781E008F9273 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3689B1C9221BE67C00E50ED5 /* forecast */;
+			targetProxy = 8E471BBE22D4781E008F9273 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -984,6 +1056,46 @@
 			};
 			name = Release;
 		};
+		8E471BC122D4781E008F9273 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = forecastTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = paja.com.forecastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/forecast.app/forecast";
+			};
+			name = Debug;
+		};
+		8E471BC222D4781E008F9273 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = forecastTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = paja.com.forecastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/forecast.app/forecast";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1028,6 +1140,15 @@
 			buildConfigurations = (
 				3689B22E221C03BB00E50ED5 /* Debug */,
 				3689B22F221C03BB00E50ED5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E471BC022D4781E008F9273 /* Build configuration list for PBXNativeTarget "forecastTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E471BC122D4781E008F9273 /* Debug */,
+				8E471BC222D4781E008F9273 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
