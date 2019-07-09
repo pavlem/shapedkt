@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+
+// MARK: - SGAlertProtocol
+extension BaseVC: ShapeAlertProtocol {
+    func alertDismissed() { }
+    func alertPresented() { }
+}
+
+
 class BaseVC: UIViewController {
 
     // MARK: - Lifecycle
@@ -19,11 +27,19 @@ class BaseVC: UIViewController {
     }
     
     // MARK: - Helper
-    func showSGAlert(text: String, isPositiveAlert: Bool = true, isDismissedAfterTimeout: Bool = false, timeoutForDismiss: Double? = nil) {
+    func showShapeAlert(text: String, isPositiveAlert: Bool = true, isDismissedAfterTimeout: Bool = false, timeoutForDismiss: Double? = nil) {
         DispatchQueue.main.async {
-//            let sgAlert = SGAlert.init(title: text, type: isPositiveAlert ? SGAlertType.positive : SGAlertType.negative, isDismissedAfterTimeout: true, timeoutForDismiss: timeoutForDismiss)
-//            sgAlert.delegate = self
-//            sgAlert.showAlert(animated: true)
+            let sgAlert = ShapeAlert.init(title: text, type: isPositiveAlert ? ShapeAlertType.positive : ShapeAlertType.negative, isDismissedAfterTimeout: true, timeoutForDismiss: timeoutForDismiss)
+            sgAlert.delegate = self
+            sgAlert.showAlert(animated: true)
+        }
+    }
+    
+    func showNoInternetAlert() {
+        DispatchQueue.main.async {
+            let sgAlert = ShapeAlert.init(title: "Common_NetworkError2".localized, type: ShapeAlertType.negative, isDismissedAfterTimeout: true)
+            sgAlert.delegate = self
+            sgAlert.showAlert(animated: true)
         }
     }
 }
@@ -31,7 +47,7 @@ class BaseVC: UIViewController {
 // MARK: - ReachabilityHelperProtocol
 extension BaseVC: ReachabilityHelperProtocol {
     @objc func noInternet() {
-        self.showSGAlert(text: "Common_NetworkError".localized, isPositiveAlert: false)
+        self.showShapeAlert(text: "Common_NetworkError".localized, isPositiveAlert: false)
         aprint("BaseVC - noInternet()")
     }
     

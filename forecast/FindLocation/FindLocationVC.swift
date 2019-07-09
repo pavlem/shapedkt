@@ -14,7 +14,7 @@ protocol FindLocationVCOutput: class {
     func locationSelected(at coordinate: CLLocationCoordinate2D)
 }
 
-final class FindLocationVC: UIViewController {
+final class FindLocationVC: BaseVC {
 
     // MARK: - API
     var output: FindLocationVCOutput!
@@ -49,6 +49,12 @@ final class FindLocationVC: UIViewController {
     
     // MARK: - Actions
     @objc private func findLocation(_ gesture: UITapGestureRecognizer) {
+        
+        guard ReachabilityHelper.shared.reachability.connection != .none else {
+            showNoInternetAlert()
+            return
+        }
+        
         let point = gesture.location(in: mapView)
         print("""
         --- FIND LOCATION
@@ -58,9 +64,10 @@ final class FindLocationVC: UIViewController {
         print("--- END OF TAP ---")
         
         let touchPoint = gesture.location(in: self.mapView)
-        let newCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom:self.mapView)
-        
+        let newCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
         print(newCoordinate)
+        
+        self.showShapeAlert(text: "test")
         
 //        let weatherVC = UIStoryboard.weatherVC
 //        self.navigationController?.pushViewController(weatherVC, animated: true)
