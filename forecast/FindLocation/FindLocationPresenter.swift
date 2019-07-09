@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Entities
 
 protocol FindLocationPresenterOutput: class {
-    func presentData()
+    func presentData(currentWeather: CurrentWeather)
 }
 
 final class FindLocationPresenter {
@@ -17,7 +18,7 @@ final class FindLocationPresenter {
 }
 
 extension FindLocationPresenter: FindLocationInteractorOutput {
-    func presentData() {
-        output.presentData()
+    func presentData(currentWeather: CurrentWeather) {
+        output.presentData(currentWeather: currentWeather)
     }
 }

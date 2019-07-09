@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import Entities
+
 
 protocol FindLocationVCOutput: class {
     func viewIsReady()
@@ -75,11 +77,12 @@ final class FindLocationVC: BaseVC {
         
         self.output.locationSelected(at: newCoordinate)
     }
-    
 }
 
 extension FindLocationVC: FindLocationPresenterOutput {
-    func presentData() {
-        aprint("presentData() VC")
+    func presentData(currentWeather: CurrentWeather) {
+        dump(currentWeather)
+        aprint("currentWeather: \(currentWeather)")
+        aprint("=")
     }
 }

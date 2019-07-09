@@ -11,11 +11,6 @@ import MapKit
 import API
 import Entities
 
-
-//protocol FindLocationRouterOutput: class {
-//    func presentData()
-//}
-
 final class FindLocationRouter {
     let api: ForecastClient
     
@@ -27,12 +22,7 @@ final class FindLocationRouter {
 }
 
 extension FindLocationRouter: FindLocationInteractorAction {
-    
-//    func presentData() {
-//        output.presentData()
-//    }
-    
-    
+
     func locationSelected(at coordinate: CLLocationCoordinate2D) {
         
         let coordinates = Coordinates(clLocationCoordinate2D: coordinate)
@@ -42,11 +32,11 @@ extension FindLocationRouter: FindLocationInteractorAction {
             switch result {
             case .success(let weather):
                 aprint(weather)
+                self.output.presentData(currentWeather: weather)
             case .failure(let err):
                 aprint(err)
             }
 //            aprint(result)
-            self.output.presentData()
         }
     }
 }
