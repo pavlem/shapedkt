@@ -22,7 +22,18 @@ final class FindLocationRouter {
 
 extension FindLocationRouter: FindLocationInteractorAction {
     func locationSelected(at coordinate: CLLocationCoordinate2D) {
-        aprint("locationSelected(at coordinate: CLLocationCoordinate2D): \(coordinate)")
+        
+        let coordinates = Coordinates(clLocationCoordinate2D: coordinate)
+        
+        api.perform(CurrentWeather.getCurrent(forLatitude: coordinates.latitude!, longitude: coordinates.longitude!)) { (result) in
+            print("""
+                    --- EXAMPLE
+                    --- Current weather for location "London, UK"
+                    """)
+            dump(result)
+            print("--- END OF EXAMPLE ---")
+        }
+//        aprint("locationSelected(at coordinate: CLLocationCoordinate2D): \(coordinate)")
     }
 }
 

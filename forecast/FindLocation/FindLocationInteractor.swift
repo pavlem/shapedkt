@@ -45,7 +45,21 @@ extension FindLocationInteractor: FindLocationVCOutput {
     }
     
     func locationSelected(at coordinate: CLLocationCoordinate2D) {
+        
+        
+//        api.perform(CurrentWeather.getCurrent(forLatitude: "51.51", longitude: "-013")) { (result) in
+//            print("""
+//            --- EXAMPLE
+//            --- Current weather for location "London, UK"
+//            """)
+//            dump(result)
+//            print("--- END OF EXAMPLE ---")
+//        }
 //        action.locationSelected(at: coordinate)
-        output.paja()        
+        
+        
+//        output.paja()
+        
+        action.locationSelected(at: coordinate)
     }
 }

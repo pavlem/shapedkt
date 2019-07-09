@@ -8,6 +8,7 @@
 
 import Entities
 import Client
+import MapKit
 
 extension CurrentWeather {
     public static func getCurrent(for query: String) -> Request<CurrentWeather, APIError> {
@@ -21,7 +22,6 @@ extension CurrentWeather {
         )
     }
     
-    
     public static func getCurrent(forLatitude latitude: String, longitude: String) -> Request<CurrentWeather, APIError> {
         return Request(
             url: URL(string: "weather")!,
@@ -31,5 +31,33 @@ extension CurrentWeather {
             error: APIError.init,
             needsAuthorization: true
         )
+    }
+    
+    public static func getCurrentWeather(forCoordinates coordinates: Coordinates) -> Request<CurrentWeather, APIError> {
+        
+        return Request(
+            url: URL(string: "weather")!,
+            method: .get,
+            parameters: [QueryParameters([URLQueryItem(name: "lat", value: coordinates.latitude!), URLQueryItem(name: "lon", value: coordinates.longitude!)])],
+            resource: decodeResource(CurrentWeather.self),
+            error: APIError.init,
+            needsAuthorization: true
+        )
+    }
+}
+
+public struct Coordinates {
+    
+    public let latitude: String?
+    public let longitude: String?
+    
+    public init(clLocationCoordinate2D: CLLocationCoordinate2D) {
+        latitude = String(clLocationCoordinate2D.latitude)
+        longitude = String(clLocationCoordinate2D.longitude)
+    }
+    
+    public init(latitude: String, longitude: String) {
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }
