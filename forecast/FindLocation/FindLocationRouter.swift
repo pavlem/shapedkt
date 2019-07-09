@@ -37,7 +37,7 @@ extension FindLocationRouter: FindLocationInteractorAction {
             case .success(let weather):
                 self.output.presentData(currentWeather: weather)
             case .failure(let err):
-                self.output.presentErr()
+                self.output.presentError(err)
                 aprint(err)
             }
         }

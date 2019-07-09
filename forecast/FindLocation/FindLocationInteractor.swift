@@ -9,10 +9,11 @@
 import MapKit
 import API
 import Entities
+import Client
 
 protocol FindLocationInteractorOutput: class {
     func presentData(currentWeather: CurrentWeather)
-    func presentErr()
+    func presentErr(_ error: Client.Error)
 }
 
 protocol FindLocationInteractorAction: class {

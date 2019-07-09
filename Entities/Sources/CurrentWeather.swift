@@ -30,10 +30,9 @@ public struct CurrentWeatherMain: Codable {
 
 public struct CurrentWeatherWind: Codable {
     public let speed: Double?
-    public let deg: Int?
+    public let deg: Double?
     public let gust: Double?
 }
-
 
 public struct CurrentWeatherClouds: Codable {
     public let all: Int?

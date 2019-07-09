@@ -8,10 +8,11 @@
 
 import Foundation
 import Entities
+import Client
 
 protocol FindLocationPresenterOutput: class {
     func presentData(currentWeather: CurrentWeather)
-    func presentErr()
+    func presentError(_ error: Client.Error)
 }
 
 final class FindLocationPresenter {
@@ -23,7 +24,7 @@ extension FindLocationPresenter: FindLocationInteractorOutput {
         output.presentData(currentWeather: currentWeather)
     }
     
-    func presentErr() {
-        output.presentErr()
+    func presentErr(_ error: Client.Error) {
+        output.presentError(error)
     }
 }

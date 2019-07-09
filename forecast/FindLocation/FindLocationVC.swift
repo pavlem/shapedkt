@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import Entities
-
+import Client
 
 protocol FindLocationVCOutput: class {
     func viewIsReady()
@@ -80,13 +80,23 @@ final class FindLocationVC: BaseVC {
 }
 
 extension FindLocationVC: FindLocationPresenterOutput {
-    func presentErr() {
-        aprint("presentErr()")
+    func presentError(_ error: Client.Error) {
+        
+        switch error {
+        case .client(let text):
+            aprint(text)
+        case .network(let err, _):
+            self.showShapeAlert(text: err.localizedDescription, isPositiveAlert: false)
+            print(err.localizedDescription)
+        case .parser(let err):
+            self.showShapeAlert(text: err.localizedDescription, isPositiveAlert: false)
+            print(err)
+        case .remote(let err, _):
+            self.showShapeAlert(text: err.localizedDescription, isPositiveAlert: false)
+        }
     }
     
     func presentData(currentWeather: CurrentWeather) {
         dump(currentWeather)
-//        aprint("currentWeather: \(currentWeather)")
-//        aprint("=")
     }
 }
