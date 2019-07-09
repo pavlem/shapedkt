@@ -11,7 +11,7 @@ import API
 import Entities
 
 protocol FindLocationInteractorOutput: class {
-    func paja()
+    func presentData()
 }
 
 protocol FindLocationInteractorAction: class {
@@ -20,6 +20,7 @@ protocol FindLocationInteractorAction: class {
 
 
 final class FindLocationInteractor {
+    
     var output: FindLocationInteractorOutput!
     var action: FindLocationInteractorAction!
     
@@ -34,14 +35,14 @@ extension FindLocationInteractor: FindLocationVCOutput {
     func viewIsReady() {
         // Request example to load the current weather with a query
         // Documentation for using the OpenWeatherAPI, is available at https://openweathermap.org/api
-        api.perform(CurrentWeather.getCurrent(forLatitude: "51.51", longitude: "-013")) { (result) in
-            print("""
-            --- EXAMPLE
-            --- Current weather for location "London, UK"
-            """)
-            dump(result)
-            print("--- END OF EXAMPLE ---")
-        }
+//        api.perform(CurrentWeather.getCurrent(forLatitude: "51.51", longitude: "-013")) { (result) in
+//            print("""
+//            --- EXAMPLE
+//            --- Current weather for location "London, UK"
+//            """)
+//            dump(result)
+//            print("--- END OF EXAMPLE ---")
+//        }
     }
     
     func locationSelected(at coordinate: CLLocationCoordinate2D) {

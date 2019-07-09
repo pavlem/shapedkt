@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FindLocationPresenterOutput: class {
-    func pajaInVC()
+    func presentData()
 }
 
 final class FindLocationPresenter {
@@ -17,9 +17,7 @@ final class FindLocationPresenter {
 }
 
 extension FindLocationPresenter: FindLocationInteractorOutput {
-
-    func paja() {
-        aprint("ssssss")
-        output.pajaInVC()
+    func presentData() {
+        output.presentData()
     }
 }

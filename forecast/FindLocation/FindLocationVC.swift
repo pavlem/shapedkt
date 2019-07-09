@@ -79,7 +79,7 @@ final class FindLocationVC: BaseVC {
 }
 
 extension FindLocationVC: FindLocationPresenterOutput {
-    func pajaInVC() {
-        aprint("pajaInVC()")
+    func presentData() {
+        aprint("presentData() VC")
     }
 }
