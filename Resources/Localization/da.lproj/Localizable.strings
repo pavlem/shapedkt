@@ -7,3 +7,5 @@
 */
 Common_NetworkError = "Du skal have internetforbindelse for at fortsætte.";
 AlertCloseBtn = "Luk";
+SelectedPlaceIs = "Udvalgt sted er:";
+Undefined = "Udefineret";

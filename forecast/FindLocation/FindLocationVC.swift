@@ -26,7 +26,14 @@ final class FindLocationVC: BaseVC {
         super.viewDidLoad()
         
         setUI()
+        
         output.viewIsReady()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
     }
     
     // MARK: - Properties
@@ -57,24 +64,10 @@ final class FindLocationVC: BaseVC {
             return
         }
         
-        let point = gesture.location(in: mapView)
-        print("""
-        --- FIND LOCATION
-        --- Map tapped at point
-        """)
-        dump(point)
-        print("--- END OF TAP ---")
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         let touchPoint = gesture.location(in: self.mapView)
         let newCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
-        print(newCoordinate)
-        
-//        let coordAsString = Coordinates(clLocationCoordinate2D: newCoordinate)
-//        aprint(coordAsString)
-        
-//        let weatherVC = UIStoryboard.weatherVC
-//        self.navigationController?.pushViewController(weatherVC, animated: true)
-        
         self.output.locationSelected(at: newCoordinate)
     }
 }
@@ -97,6 +90,14 @@ extension FindLocationVC: FindLocationPresenterOutput {
     }
     
     func presentData(currentWeather: CurrentWeather) {
-        dump(currentWeather)
+        let currentWeatherViewModel = CurrentWeatherViewModel(weather: currentWeather)
+        
+        let weatherVC = UIStoryboard.weatherVC
+        weatherVC.currentWeatherViewModel = currentWeatherViewModel
+
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.navigationController?.customPush(weatherVC)
+        }
     }
 }

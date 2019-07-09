@@ -7,3 +7,5 @@
 */
 Common_NetworkError = "Please make sure you have an internet connection in order to proceed.";
 AlertCloseBtn = "Close";
+SelectedPlaceIs = "Selected Place Is:";
+Undefined = "Undefined";
