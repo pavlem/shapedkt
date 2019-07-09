@@ -37,7 +37,7 @@ class BaseVC: UIViewController {
     
     func showNoInternetAlert() {
         DispatchQueue.main.async {
-            let sgAlert = ShapeAlert.init(title: "Common_NetworkError2".localized, type: ShapeAlertType.negative, isDismissedAfterTimeout: true)
+            let sgAlert = ShapeAlert.init(title: "Common_NetworkError".localized, type: ShapeAlertType.negative, isDismissedAfterTimeout: true)
             sgAlert.delegate = self
             sgAlert.showAlert(animated: true)
         }
