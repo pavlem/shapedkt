@@ -8,43 +8,67 @@
 
 import Foundation
 
-public struct CurrentWeather: Codable {
-    enum CodingKeys: String, CodingKey {
-        case date = "dt"
-        case name
-    }
-    
-    public let date: Date
-    public let name: String
+public struct CurrentWeatherCoordinates: Codable {
+    public let lon: Double?
+    public let lat: Double?
 }
 
-//["wind": {
-//    deg = 100;
-//    speed = "2.6";
-//    }, "id": 3470034, "sys": {
-//        country = BR;
-//        id = 8314;
-//        message = "0.0065";
-//        sunrise = 1562664802;
-//        sunset = 1562703966;
-//        type = 1;
-//    }, "weather": <__NSArrayM 0x600003a29110>(
-//    {
-//    description = mist;
-//    icon = 50d;
-//    id = 701;
-//    main = Mist;
+public struct CurrentWeatherWeatherData: Codable {
+    public let id: Int?
+    public let main: String?
+    public let description: String?
+    public let icon: String?
+}
+
+public struct CurrentWeatherMain: Codable {
+    public let temp: Double?
+    public let pressure: Double?
+    public let humidity: Double?
+    public let temp_min: Double?
+    public let temp_max: Double?
+}
+
+public struct CurrentWeatherWind: Codable {
+    public let speed: Double?
+    public let deg: Int?
+    public let gust: Double?
+}
+
+
+public struct CurrentWeatherClouds: Codable {
+    public let all: Int?
+}
+
+public struct CurrentWeatherSys: Codable {
+    public let type: Int?
+    public let id: Int?
+    public let message: Double?
+    public let country: String?
+    public let sunrise: Date?
+    public let sunset: Date?
+}
+
+public struct CurrentWeather: Codable {
+    
+//    enum CodingKeys: String, CodingKey {
+//        case wind
+//
+//        case date = "dt"
+//        case name
+//        case cod
 //    }
-//    )
-//    , "visibility": 5000, "coord": {
-//        lat = "-21.61";
-//        lon = "-43.69";
-//    }, "base": stations, "main": {
-//        humidity = 93;
-//        pressure = 1029;
-//        temp = "282.15";
-//        "temp_max" = "282.15";
-//        "temp_min" = "282.15";
-//    }, "name": Bias Fortes, "timezone": -10800, "dt": 1562665274, "clouds": {
-//        all = 75;
-//    }, "cod": 200]
+    
+    public let coord: CurrentWeatherCoordinates?
+    public let weather: [CurrentWeatherWeatherData]?
+    public let base: String?
+    public let main: CurrentWeatherMain?
+    public let visibility: Int?
+    public let wind: CurrentWeatherWind?
+    public let clouds: CurrentWeatherClouds?
+    public let dt: Date?
+    public let sys: CurrentWeatherSys?
+    public let timezone: Int?
+    public let id: Int?
+    public let name: String?
+    public let cod: Int?
+}

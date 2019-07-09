@@ -11,6 +11,7 @@ import Entities
 
 protocol FindLocationPresenterOutput: class {
     func presentData(currentWeather: CurrentWeather)
+    func presentErr()
 }
 
 final class FindLocationPresenter {
@@ -20,5 +21,9 @@ final class FindLocationPresenter {
 extension FindLocationPresenter: FindLocationInteractorOutput {
     func presentData(currentWeather: CurrentWeather) {
         output.presentData(currentWeather: currentWeather)
+    }
+    
+    func presentErr() {
+        output.presentErr()
     }
 }

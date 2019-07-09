@@ -19,24 +19,27 @@ final class FindLocationRouter {
     init(api apiClient: ForecastClient) {
         self.api = apiClient
     }
+    
+    var dataTask: URLSessionTask?
 }
 
 extension FindLocationRouter: FindLocationInteractorAction {
 
     func locationSelected(at coordinate: CLLocationCoordinate2D) {
         
+        self.dataTask?.cancel()
+        
         let coordinates = Coordinates(clLocationCoordinate2D: coordinate)
         
-        api.perform(CurrentWeather.getCurrent(forLatitude: coordinates.latitude!, longitude: coordinates.longitude!)) { (result) in
+        self.dataTask = api.perform(CurrentWeather.getCurrent(forLatitude: coordinates.latitude!, longitude: coordinates.longitude!)) { (result) in
             
             switch result {
             case .success(let weather):
-                aprint(weather)
                 self.output.presentData(currentWeather: weather)
             case .failure(let err):
+                self.output.presentErr()
                 aprint(err)
             }
-//            aprint(result)
         }
     }
 }

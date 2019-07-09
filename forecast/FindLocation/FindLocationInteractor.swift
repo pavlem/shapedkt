@@ -12,6 +12,7 @@ import Entities
 
 protocol FindLocationInteractorOutput: class {
     func presentData(currentWeather: CurrentWeather)
+    func presentErr()
 }
 
 protocol FindLocationInteractorAction: class {

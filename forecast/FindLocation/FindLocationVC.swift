@@ -80,9 +80,13 @@ final class FindLocationVC: BaseVC {
 }
 
 extension FindLocationVC: FindLocationPresenterOutput {
+    func presentErr() {
+        aprint("presentErr()")
+    }
+    
     func presentData(currentWeather: CurrentWeather) {
         dump(currentWeather)
-        aprint("currentWeather: \(currentWeather)")
-        aprint("=")
+//        aprint("currentWeather: \(currentWeather)")
+//        aprint("=")
     }
 }
