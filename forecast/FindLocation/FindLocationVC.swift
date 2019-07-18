@@ -95,9 +95,61 @@ extension FindLocationVC: FindLocationPresenterOutput {
         let weatherVC = UIStoryboard.weatherVC
         weatherVC.currentWeatherViewModel = currentWeatherViewModel
 
+        
+        
+        
+        
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            
+            
+
+            
+            let weatherVC = UIStoryboard.weatherVC
+            weatherVC.currentWeatherViewModel = currentWeatherViewModel
+            
+            let img = self.view.takeScreenshot()
+            weatherVC.snapshotImg = img
+            
+            weatherVC.modalPresentationStyle = .overCurrentContext
+//            weatherVC.view.backgroundColor = UIColor.clear
+            weatherVC.providesPresentationContextTransitionStyle = true
+            weatherVC.definesPresentationContext = true
+            weatherVC.modalPresentationStyle = .overCurrentContext
+//            self.navigationController?.pushViewController(weatherVC, animated: true)
             self.navigationController?.customPush(weatherVC)
+            
+            
+            
+//            weatherVC.view.backgroundColor = UIColor.clear
+//            weatherVC.providesPresentationContextTransitionStyle = true
+//            weatherVC.definesPresentationContext = true
+//            weatherVC.modalPresentationStyle = .overCurrentContext
+////            weatherVC.modalTransitionStyle = .crossDissolve
+//                self.navigationController?.present(weather/VC, animated: true, completion: nil)
+            
         }
+    }
+}
+
+extension UIView {
+    
+    func takeScreenshot() -> UIImage {
+        
+        // Begin context
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
+        
+        // Draw view in that context
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        
+        // And finally, get image
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        if (image != nil)
+        {
+            return image!
+        }
+        return UIImage()
     }
 }

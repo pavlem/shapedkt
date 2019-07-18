@@ -9,13 +9,32 @@
 import Foundation
 import UIKit
 
+protocol Blurrable: BaseVC {
+    func blurrBackground()
+}
+
+extension Blurrable {
+    private var blurView: UIView {
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        return blurEffectView
+    }
+    
+    func blurrBackground() {
+        guard let topPresentedViewController = UIApplication.topPresentedViewController else { return }
+        topPresentedViewController.definesPresentationContext = true
+//        view.backgroundColor = .clear
+        view.addSubview(blurView)
+//        view.insertSubview(blurView, at: 0)
+    }
+}
 
 // MARK: - SGAlertProtocol
 extension BaseVC: ShapeAlertProtocol {
     func alertDismissed() { }
     func alertPresented() { }
 }
-
 
 class BaseVC: UIViewController {
 

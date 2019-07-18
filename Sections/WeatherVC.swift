@@ -8,12 +8,16 @@
 
 import UIKit
 
-class WeatherVC: UIViewController {
+class WeatherVC: BaseVC, Blurrable {
 
+    // MARK: - Outlets
+    @IBOutlet weak var backBtn: UIButton!
+    
     // MARK: - API
     var mainTitle: String?
     var currentWeatherViewModel: CurrentWeatherViewModel?
-
+    var snapshotImg: UIImage?
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +25,21 @@ class WeatherVC: UIViewController {
         setUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.isNavigationBarHidden = false
+    // MARK: - Actions
+    @IBAction func popBack(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Helper
     func setUI() {
-        self.title = currentWeatherViewModel?.name
+        let imageView = UIImageView(frame: UIApplication.shared.keyWindow?.frame ?? self.view.frame)
+        imageView.image = snapshotImg
+        self.view.addSubview(imageView)
+        
+        blurrBackground()
+        
+        self.view.bringSubviewToFront(backBtn)
+        backBtn.backgroundColor = .orange
+        backBtn.layer.cornerRadius = 20
     }
 }
