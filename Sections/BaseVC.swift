@@ -26,6 +26,8 @@ extension Blurrable {
         topPresentedViewController.definesPresentationContext = true
 //        view.backgroundColor = .clear
         view.addSubview(blurView)
+        
+//        self.view.addSubview(img)
 //        view.insertSubview(blurView, at: 0)
     }
 }
@@ -43,6 +45,22 @@ class BaseVC: UIViewController {
         super.viewDidLoad()
         
         ReachabilityHelper.shared.delegate = self
+    }
+    
+    func addBackBtn(color: UIColor? = .orange) {
+        let btn = ArrowBackBtn(frame: CGRect(x: 8, y: 20, width: 50, height: 50))
+        btn.backgroundColor = color
+        btn.addTarget(self, action: #selector(self.backBtn), for: .touchUpInside)
+        view.addSubview(btn)
+    }
+    
+    // MARK: - Actions
+    @objc func backBtn() {
+        if let nc = self.navigationController {
+            nc.popViewController(animated: true)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helper

@@ -11,7 +11,6 @@ import UIKit
 class WeatherVC: BaseVC, Blurrable {
 
     // MARK: - Outlets
-    @IBOutlet weak var backBtn: UIButton!
     
     // MARK: - API
     var mainTitle: String?
@@ -34,12 +33,9 @@ class WeatherVC: BaseVC, Blurrable {
     func setUI() {
         let imageView = UIImageView(frame: UIApplication.shared.keyWindow?.frame ?? self.view.frame)
         imageView.image = snapshotImg
-        self.view.addSubview(imageView)
+        view.addSubview(imageView)
         
         blurrBackground()
-        
-        self.view.bringSubviewToFront(backBtn)
-        backBtn.backgroundColor = .orange
-        backBtn.layer.cornerRadius = 20
+        addBackBtn()
     }
 }

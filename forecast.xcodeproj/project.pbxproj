@@ -39,6 +39,8 @@
 		8E471BC722D47CCC008F9273 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E471BC922D47CCC008F9273 /* Localizable.strings */; };
 		8E471BCC22D518FE008F9273 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471BCB22D518FE008F9273 /* UINavigationController+Extension.swift */; };
 		8E471BCF22D51F35008F9273 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471BCE22D51F35008F9273 /* CurrentWeatherViewModel.swift */; };
+		8EC02E2D22E21E08002B59C6 /* ArrowBackBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */; };
+		8EC02E2F22E21E4E002B59C6 /* ArrowBackBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */; };
 		8EF6EB4E22D28AD6001CA073 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6EB4D22D28AD6001CA073 /* UIApplication+Extension.swift */; };
 		8EF6EB5422D28D10001CA073 /* Weather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF6EB5322D28D10001CA073 /* Weather.storyboard */; };
 		8EF6EB5C22D28DA1001CA073 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6EB5B22D28DA1001CA073 /* WeatherVC.swift */; };
@@ -152,6 +154,8 @@
 		8E471BCA22D47CD1008F9273 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8E471BCB22D518FE008F9273 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		8E471BCE22D51F35008F9273 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBackBtnView.swift; sourceTree = "<group>"; };
+		8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBackBtn.swift; sourceTree = "<group>"; };
 		8EF6EB4D22D28AD6001CA073 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		8EF6EB5322D28D10001CA073 /* Weather.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Weather.storyboard; sourceTree = "<group>"; };
 		8EF6EB5B22D28DA1001CA073 /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 			isa = PBXGroup;
 			children = (
 				8EF6EB7322D292D1001CA073 /* ShapeAlert.swift */,
+				8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */,
+				8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -648,6 +654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF6EB6C22D29072001CA073 /* Reachability.swift in Sources */,
+				8EC02E2D22E21E08002B59C6 /* ArrowBackBtnView.swift in Sources */,
 				3689B1E7221BE8EE00E50ED5 /* FindLocationInteractor.swift in Sources */,
 				3689B1E5221BE8E500E50ED5 /* FindLocationVC.swift in Sources */,
 				8EF6EB6622D28EBA001CA073 /* UIImage+Icons.swift in Sources */,
@@ -663,6 +670,7 @@
 				3689B1CE221BE67C00E50ED5 /* AppDelegate.swift in Sources */,
 				8EF6EB6422D28EAE001CA073 /* UIColor+Extension.swift in Sources */,
 				8EF6EB7122D29184001CA073 /* String+Extension.swift in Sources */,
+				8EC02E2F22E21E4E002B59C6 /* ArrowBackBtn.swift in Sources */,
 				8EF6EB4E22D28AD6001CA073 /* UIApplication+Extension.swift in Sources */,
 				8E471BCC22D518FE008F9273 /* UINavigationController+Extension.swift in Sources */,
 			);

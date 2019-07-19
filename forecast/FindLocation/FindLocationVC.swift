@@ -65,10 +65,26 @@ final class FindLocationVC: BaseVC {
         }
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         let touchPoint = gesture.location(in: self.mapView)
         let newCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
         self.output.locationSelected(at: newCoordinate)
+        
+        
+        //==============================
+//        let weatherVC = UIStoryboard.weatherVC
+////        weatherVC.currentWeatherViewModel = currentWeatherViewModel
+//
+//        let img = self.view.takeScreenshot()
+//        weatherVC.snapshotImg = img
+//
+//        weatherVC.modalPresentationStyle = .overCurrentContext
+//        //            weatherVC.view.backgroundColor = UIColor.clear
+//        weatherVC.providesPresentationContextTransitionStyle = true
+//        weatherVC.definesPresentationContext = true
+//        weatherVC.modalPresentationStyle = .overCurrentContext
+//        //            self.navigationController?.pushViewController(weatherVC, animated: true)
+//        self.navigationController?.customPush(weatherVC)
+        //==============================
     }
 }
 
@@ -92,18 +108,10 @@ extension FindLocationVC: FindLocationPresenterOutput {
     func presentData(currentWeather: CurrentWeather) {
         let currentWeatherViewModel = CurrentWeatherViewModel(weather: currentWeather)
         
-        let weatherVC = UIStoryboard.weatherVC
-        weatherVC.currentWeatherViewModel = currentWeatherViewModel
-
-        
-        
         
         
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            
-            
-
             
             let weatherVC = UIStoryboard.weatherVC
             weatherVC.currentWeatherViewModel = currentWeatherViewModel
@@ -118,7 +126,6 @@ extension FindLocationVC: FindLocationPresenterOutput {
             weatherVC.modalPresentationStyle = .overCurrentContext
 //            self.navigationController?.pushViewController(weatherVC, animated: true)
             self.navigationController?.customPush(weatherVC)
-            
             
             
 //            weatherVC.view.backgroundColor = UIColor.clear
