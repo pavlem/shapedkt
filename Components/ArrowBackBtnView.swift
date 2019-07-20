@@ -9,12 +9,15 @@
 import UIKit
 
 class ArrowBackBtnView: UIView {
+    
+    var strokeColor: UIColor? = .black
+    
     override func draw(_ rect: CGRect) {
         let padding = CGFloat(rect.size.width * 0.1)
         let arrow = UIBezierPath()
         arrow.addArrow(start: CGPoint(x: rect.size.width - padding, y: rect.size.height / 2), end: CGPoint(x: 0 + padding, y: rect.size.height / 2), pointerLineLength: rect.size.width / 3, arrowAngle: CGFloat(Double.pi / 4))
         let arrowLayer = CAShapeLayer()
-        arrowLayer.strokeColor = UIColor.black.cgColor
+        arrowLayer.strokeColor = strokeColor?.cgColor
         arrowLayer.lineWidth = 3
         arrowLayer.path = arrow.cgPath
         arrowLayer.fillColor = UIColor.clear.cgColor
@@ -23,6 +26,8 @@ class ArrowBackBtnView: UIView {
         self.layer.cornerRadius = rect.size.width/2
         self.layer.masksToBounds = true
         self.layer.addSublayer(arrowLayer)
+        self.backgroundColor = .clear
+        
     }
 }
 

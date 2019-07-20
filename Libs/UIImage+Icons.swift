@@ -12,4 +12,6 @@ extension UIImage {
         static var negativeImg: UIImage { return UIImage(named: "sgAlertNegativeImg")! }
         static var positiveImg: UIImage { return UIImage(named: "sgAlertPositiveImg")! }
     }
+    
+    static var backBtnImg: UIImage { return UIImage(named: "backImg")! }
 }

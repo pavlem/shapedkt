@@ -23,7 +23,7 @@ class WeatherVC: BaseVC, Blurrable {
         
         setUI()
     }
-    
+        
     // MARK: - Actions
     @IBAction func popBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -36,6 +36,7 @@ class WeatherVC: BaseVC, Blurrable {
         view.addSubview(imageView)
         
         blurrBackground()
-        addBackBtn()
+//        addBackBtn(color: .clear, isBorder: true)
+        addBackButton(color: .white)
     }
 }

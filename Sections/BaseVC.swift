@@ -47,9 +47,26 @@ class BaseVC: UIViewController {
         ReachabilityHelper.shared.delegate = self
     }
     
-    func addBackBtn(color: UIColor? = .orange) {
+    
+    func addBackButton(color: UIColor? = nil) {
+        let buttonImg = UIImage.backBtnImg
+        let buttonImgColored = buttonImg.maskWithColor(color: color ?? .black)
+        let btn = UIButton(frame: CGRect(x: 8, y: 20, width: 50, height: 50))
+        btn.setImage(buttonImgColored, for: .normal)
+        btn.addTarget(self, action: #selector(self.backBtn), for: .touchUpInside)
+        view.addSubview(btn)
+
+    }
+    
+    func addBackBtn(color: UIColor? = .orange, isBorder: Bool) {
         let btn = ArrowBackBtn(frame: CGRect(x: 8, y: 20, width: 50, height: 50))
         btn.backgroundColor = color
+
+        if isBorder {
+            btn.layer.borderColor = UIColor.white.cgColor
+            btn.layer.borderWidth = 2
+        }
+
         btn.addTarget(self, action: #selector(self.backBtn), for: .touchUpInside)
         view.addSubview(btn)
     }
