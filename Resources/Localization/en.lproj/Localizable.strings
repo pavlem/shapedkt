@@ -9,3 +9,4 @@ Common_NetworkError = "Please make sure you have an internet connection in order
 AlertCloseBtn = "Close";
 SelectedPlaceIs = "Selected Place Is:";
 Undefined = "Undefined";
+LatAndLongAre = "Selected Latitute And Longitude Are:";

@@ -108,8 +108,6 @@ extension FindLocationVC: FindLocationPresenterOutput {
     func presentData(currentWeather: CurrentWeather) {
         let currentWeatherViewModel = CurrentWeatherViewModel(weather: currentWeather)
         
-        
-        
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             
@@ -133,7 +131,6 @@ extension FindLocationVC: FindLocationPresenterOutput {
 //            weatherVC.modalPresentationStyle = .overCurrentContext
 ////            weatherVC.modalTransitionStyle = .crossDissolve
 //                self.navigationController?.present(weather/VC, animated: true, completion: nil)
-            
         }
     }
 }
