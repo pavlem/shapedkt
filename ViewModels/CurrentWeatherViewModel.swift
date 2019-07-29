@@ -37,44 +37,88 @@ struct CurrentWeatherViewModel {
     let sunset: String?
     let countryCode: String?
     let timeZone: String?
+    var isMetric = true
     
     // MARK: Computed
     var detailesDescription: String {
-        let d = "today" + self.generalDescription! //+ "CurrentT" + temp + "highAndLowT" + hightT + lowTemp + "sunriseSunset" + sunrise + sunset
-        let temp = "currentT" + self.tInC!
-        let highLowT = "highAndLowT" + self.tInCMax! + self.tInCMin!
-        let sunriseSunset = "sunriseSunset" + self.sunrise! + self.sunset!
+        var genDescr = ""
+        if let genDescription = self.generalDescription {
+            genDescr = "Today".localized + genDescription + "."
+        }
         
-        return d + temp + highLowT + sunriseSunset
+        var temp = ""
+        if let curT = self.currentT {
+            temp = " " + "CurrentT".localized + curT + "."
+        }
+        
+        var highLow = ""
+        if let hightT = self.highestTemp, let lowT = self.lowestTemp {
+            highLow = " " + "HighLow".localized + hightT + "," + lowT + "."
+        }
+        
+        var sunriseSunset = ""
+        if let sunR = self.sunrise, let sunS = self.sunset {
+            sunriseSunset = " " + sunR + ", " + sunS + "."
+        }
+
+        return genDescr + temp + highLow + sunriseSunset
     }
     
     var countryDetails: (countryName: String?, countryFlag: String?) {
         let countryDetails = CurrentWeatherViewModel.getCountryNameAndFlag(fromCode: self.countryCode)
         return (countryDetails.countryName, countryDetails.countryFlag)
     }
-   
+    
+    var currentT: String? {
+        if isMetric {
+            return self.tInC
+        } else {
+            return self.tInF
+        }
+    }
+    
+    var highestTemp: String? {
+        if isMetric {
+            return self.tInCMax
+        } else {
+            return self.tInFMax
+        }
+    }
+    
+    var lowestTemp: String? {
+        if isMetric {
+            return self.tInCMin
+        } else {
+            return self.tInFMin
+        }
+    }
+
     // MARK: - Inits
     init(weather: CurrentWeather) {
         self.coordinates = CurrentWeatherViewModel.getCordinates(lat: weather.coord?.lat, long: weather.coord?.lon)
         self.shortDescription = weather.weather?.first?.main
         self.generalDescription = weather.weather?.first?.description
-        self.tInC = CurrentWeatherViewModel.getTemperature(tInK: weather.main?.temp, isMetric: true)
-        self.tInF =  CurrentWeatherViewModel.getTemperature(tInK: weather.main?.temp, isMetric: false)
-        self.tInCMax = CurrentWeatherViewModel.getTemperature(tInK: weather.main?.temp, isMetric: true)
-        self.tInCMin = CurrentWeatherViewModel.getTemperature(tInK: weather.main?.temp, isMetric: true)
-        self.tInFMax = CurrentWeatherViewModel.getTemperature(tInK: weather.main?.temp, isMetric: false)
-        self.tInFMin = CurrentWeatherViewModel.getTemperature(tInK: weather.main?.temp, isMetric: false)
-        self.iconUrl = CurrentWeatherViewModel.getWeatherIcon(weather.weather?.first?.icon)
+        
+        self.tInC = CurrentWeatherViewModel.getTemperature(tempInKelvin: weather.main?.temp, isMetric: true)
+        self.tInF =  CurrentWeatherViewModel.getTemperature(tempInKelvin: weather.main?.temp, isMetric: false)
+        self.tInCMax = CurrentWeatherViewModel.getTemperature(tempInKelvin: weather.main?.temp_max, isMetric: true)
+        self.tInCMin = CurrentWeatherViewModel.getTemperature(tempInKelvin: weather.main?.temp_min, isMetric: true)
+        self.tInFMax = CurrentWeatherViewModel.getTemperature(tempInKelvin: weather.main?.temp_max, isMetric: false)
+        self.tInFMin = CurrentWeatherViewModel.getTemperature(tempInKelvin: weather.main?.temp_min, isMetric: false)
+        
+        self.iconUrl = CurrentWeatherViewModel.getWeatherIconURLString(weather.weather?.first?.icon)
         self.pressure = CurrentWeatherViewModel.get(pressure: weather.main?.pressure)
         self.humidity = CurrentWeatherViewModel.get(humidity: weather.main?.humidity)
         self.seaLlvPressure = CurrentWeatherViewModel.get(seaLvlPressure: weather.main?.sea_level)
         self.groundLlvPressure = CurrentWeatherViewModel.get(groundLlvPressure: weather.main?.grnd_level)
+        
         self.windSpeedMetric = CurrentWeatherViewModel.getWindSpeed(weather.wind?.speed, isMetric: true)
         self.windSpeedImperial = CurrentWeatherViewModel.getWindSpeed(weather.wind?.speed, isMetric: false)
         self.windSpeedDirection = CurrentWeatherViewModel.get(windSpeedDirection: weather.wind?.deg)
+        
         self.clouds = CurrentWeatherViewModel.getCloudiness(weather.clouds?.all)
         self.cityName = CurrentWeatherViewModel.get(cityName: weather.name)
-        self.dateForDataRetreived = CurrentWeatherViewModel.getTimeString(weather.date)
+        self.dateForDataRetreived = CurrentWeatherViewModel.getDateString(weather.date)
         self.sunset = CurrentWeatherViewModel.getSunset(weather.sys?.sunset)
         self.sunrise = CurrentWeatherViewModel.getSunrise(weather.sys?.sunrise)
         self.timeZone = CurrentWeatherViewModel.getTimeZoneOffset(offestInSec: weather.timezone)
@@ -100,7 +144,7 @@ extension CurrentWeatherViewModel {
         return String(format: "%+.2d:%.2d", hours, minutes)
     }
 
-    static func getTimeString(_ unixDate: Double?) -> String? {
+    static func getDateString(_ unixDate: Double?) -> String? {
         guard let unixTimestamp = unixDate else { return nil }
         let date = Date(timeIntervalSince1970: unixTimestamp)
         let dateFormatter = DateFormatter()
@@ -110,11 +154,21 @@ extension CurrentWeatherViewModel {
         return strDate
     }
     
+    static func getTimeString(_ unixDate: Double?) -> String? {
+        guard let unixTimestamp = unixDate else { return nil }
+        let date = Date(timeIntervalSince1970: unixTimestamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "HH:mm"
+        let strDate = dateFormatter.string(from: date)
+        return strDate
+    }
+    
     static func getSunset(_ unixDate: Double?) -> String? {
         guard let str = getTimeString(unixDate) else { return nil }
         return "Sunset".localized + " " + str
     }
-    
+
     static func getSunrise(_ unixDate: Double?) -> String? {
         guard let str = getTimeString(unixDate) else { return nil }
         return "Sunrise".localized + " " + str
@@ -136,16 +190,33 @@ extension CurrentWeatherViewModel {
         return "LatAndLongAre".localized + " " + String(latitude) + ", " + String(longitude)
     }
     
-    static func getTemperature(tInK: Double?, isMetric: Bool) -> String? {
+    // D
+    static func getTemperature(tempInKelvin: Double?, isMetric: Bool) -> String? {
+        guard let temp = tempInKelvin else { return nil }
         if isMetric {
-            return "M"
+            return String(CurrentWeatherViewModel.getTempInC(fromKelvin: temp))
         }
-        return "I"
+        return String(CurrentWeatherViewModel.getTempInF(fromKelvin: temp))
     }
     
-    static func getWeatherIcon(_ icon: String?) -> String? {
+    // D
+    static func getTempInF(fromKelvin tempInK: Double) -> Int {
+        let doubleValue = (((tempInK - 273.15) * 9/5) + 32).rounded(toPlaces: 0)
+        let intValue = Int(doubleValue)
+        return intValue
+    }
+
+    // D
+    static func getTempInC(fromKelvin tempInK: Double) -> Int {
+        let doubleValue = (tempInK - 273.15).rounded(toPlaces: 0)
+        let intValue = Int(doubleValue)
+        return intValue
+    }
+
+    // D
+    static func getWeatherIconURLString(_ icon: String?) -> String? {
         guard let icon = icon else { return nil }
-        return "http" + icon
+        return "http://openweathermap.org/img/wn/" + icon + "@2x.png"
     }
     
     static func get(pressure: Double?) -> String? {
@@ -168,13 +239,16 @@ extension CurrentWeatherViewModel {
         return "groundLlvPressureIs".localized + " " + String(groundLlvPressure)
     }
     
+    // D
     static func getWindSpeed(_ windSpeed: Double?, isMetric: Bool) -> String? {
+        guard let speed = windSpeed else { return nil }
+        
         if isMetric {
-            return "M"
+            return String(speed.rounded(toPlaces: 2)) + " " + "MetersPerSecond".localized
         }
-        return "I"
+        return String((speed * 2.237).rounded(toPlaces: 2)) + " " + "MilesPerHour".localized
     }
-    
+
     static func get(windSpeedDirection: Double?) -> String? {
         guard let windSpeedDirection = windSpeedDirection else { return nil }
         return "windSpeedDirectionIs".localized + " " + String(windSpeedDirection)

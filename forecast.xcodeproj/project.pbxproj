@@ -36,6 +36,7 @@
 		3689B237221C05F300E50ED5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689B236221C05F300E50ED5 /* APIError.swift */; };
 		3689B23D221C0C7800E50ED5 /* DecodeResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689B23C221C0C7800E50ED5 /* DecodeResource.swift */; };
 		8E3904E522EEDCCD000BA92A /* CountryCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3904E422EEDCCD000BA92A /* CountryCodes.swift */; };
+		8E3904E722EEF011000BA92A /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3904E622EEF011000BA92A /* Double+Extension.swift */; };
 		8E471BBC22D4781E008F9273 /* forecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471BBB22D4781E008F9273 /* forecastTests.swift */; };
 		8E471BC722D47CCC008F9273 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E471BC922D47CCC008F9273 /* Localizable.strings */; };
 		8E471BCC22D518FE008F9273 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471BCB22D518FE008F9273 /* UINavigationController+Extension.swift */; };
@@ -150,6 +151,7 @@
 		3689B236221C05F300E50ED5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3689B23C221C0C7800E50ED5 /* DecodeResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeResource.swift; sourceTree = "<group>"; };
 		8E3904E422EEDCCD000BA92A /* CountryCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodes.swift; sourceTree = "<group>"; };
+		8E3904E622EEF011000BA92A /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		8E471BB922D4781E008F9273 /* forecastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = forecastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E471BBB22D4781E008F9273 /* forecastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forecastTests.swift; sourceTree = "<group>"; };
 		8E471BBD22D4781E008F9273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				8EF6EB4D22D28AD6001CA073 /* UIApplication+Extension.swift */,
 				8EC02E3022E3332A002B59C6 /* UIImage+Extension.swift */,
 				8EC02E3222E33378002B59C6 /* UIView+Extension.swift */,
+				8E3904E622EEF011000BA92A /* Double+Extension.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				8EF6EB6422D28EAE001CA073 /* UIColor+Extension.swift in Sources */,
 				8EF6EB7122D29184001CA073 /* String+Extension.swift in Sources */,
 				8EC02E2F22E21E4E002B59C6 /* ArrowBackBtn.swift in Sources */,
+				8E3904E722EEF011000BA92A /* Double+Extension.swift in Sources */,
 				8EF6EB4E22D28AD6001CA073 /* UIApplication+Extension.swift in Sources */,
 				8E3904E522EEDCCD000BA92A /* CountryCodes.swift in Sources */,
 				8E471BCC22D518FE008F9273 /* UINavigationController+Extension.swift in Sources */,

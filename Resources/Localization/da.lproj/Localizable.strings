@@ -10,3 +10,7 @@ AlertCloseBtn = "Luk";
 SelectedPlaceIs = "Udvalgt sted er:";
 Undefined = "Udefineret";
 LatAndLongAre = "Selected Latitute And Longitude Are DE:";
+Today = "Today DE: ";
+CurrentT = "Current Temp is DE: ";
+HighLow = "High and Low are DE: ";
+SunriseSunset = "Sunrise and Sunset are at DE: ";
