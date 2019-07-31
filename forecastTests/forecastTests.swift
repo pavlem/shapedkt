@@ -76,4 +76,41 @@ extension forecastTests {
         XCTAssert(si2 == "223.7 MPH", "🍊🍊, testGetWindSpeed not ok")
         XCTAssert(si3 == "67.11 MPH", "🍊🍊, testGetWindSpeed not ok")
     }
+    
+    func testWeatherVM() {
+        MOCHelper.fetchWeather { (isFetched, currentWeather) in
+            guard let weather = currentWeather else { return }
+            let weatherVM = CurrentWeatherViewModel(weather: weather)
+
+            // stored properties
+            XCTAssert(weatherVM.coordinates == "Selected Latitute And Longitude Are: -15.79, -48.09", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.shortDescription == "Clear", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.generalDescription == "clear sky", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.iconUrl == "http://openweathermap.org/img/wn/01n@2x.png", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInC == "13 C", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInCMax == "15 C", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInCMin == "11 C", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInF == "55 F", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInFMax == "59 F", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInFMin == "52 F", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.pressure == "Pressure: 1020.0", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.humidity == "Humidity: 82.0", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.windSpeedMetric == "1.0 m/s", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.windSpeedImperial == "2.24 MPH", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.windSpeedDirection == "Wind Speed Direction: 270.0", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.clouds == "Cloudiness: none", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.cityName == "City Name: Brasilia", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.sunrise == "Sunrise: 11:36", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.sunset == "Sunset: 23:00", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.timeZone == "Timezone: -03:00 From GMT", "🍊🍊, testWeatherVM not ok")
+
+            // calculated properties
+            XCTAssert(weatherVM.detailesDescription == "Today is clear sky. Current temp 13 C. High and Low are: 15 C, 11 C. Sunrise: 11:36h and Sunset: 23:00h.", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.countryDetails.countryName == "Brazil", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.countryDetails.countryFlag == "🇧🇷", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.lowestTempD == "Lowest temp: 11 C", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.highestTempD == "Highest temp: 15 C", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.currentTD == "Current temp 13 C", "🍊🍊, testWeatherVM not ok")
+        }
+    }
 }

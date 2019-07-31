@@ -41,6 +41,12 @@
 		8E471BC722D47CCC008F9273 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E471BC922D47CCC008F9273 /* Localizable.strings */; };
 		8E471BCC22D518FE008F9273 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471BCB22D518FE008F9273 /* UINavigationController+Extension.swift */; };
 		8E471BCF22D51F35008F9273 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471BCE22D51F35008F9273 /* CurrentWeatherViewModel.swift */; };
+		8E64F3CF22F17C680055EBEB /* weatherMOC.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E64F3CD22F17C680055EBEB /* weatherMOC.json */; };
+		8E64F3D022F17C680055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
+		8E64F3DA22F180730055EBEB /* weatherMOC.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E64F3CD22F17C680055EBEB /* weatherMOC.json */; };
+		8E64F3DB22F180730055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
+		8E64F3DC22F181270055EBEB /* weatherMOC.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E64F3CD22F17C680055EBEB /* weatherMOC.json */; };
+		8E64F3DD22F1812A0055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
 		8EC02E2D22E21E08002B59C6 /* ArrowBackBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */; };
 		8EC02E2F22E21E4E002B59C6 /* ArrowBackBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */; };
 		8EC02E3122E3332A002B59C6 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E3022E3332A002B59C6 /* UIImage+Extension.swift */; };
@@ -160,6 +166,8 @@
 		8E471BCA22D47CD1008F9273 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8E471BCB22D518FE008F9273 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		8E471BCE22D51F35008F9273 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		8E64F3CD22F17C680055EBEB /* weatherMOC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weatherMOC.json; sourceTree = "<group>"; };
+		8E64F3CE22F17C680055EBEB /* MOCHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOCHelper.swift; sourceTree = "<group>"; };
 		8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBackBtnView.swift; sourceTree = "<group>"; };
 		8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBackBtn.swift; sourceTree = "<group>"; };
 		8EC02E3022E3332A002B59C6 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -342,6 +350,7 @@
 		8E471BBA22D4781E008F9273 /* forecastTests */ = {
 			isa = PBXGroup;
 			children = (
+				8E64F3CC22F17C680055EBEB /* MOCdata */,
 				8E471BBB22D4781E008F9273 /* forecastTests.swift */,
 				8E471BBD22D4781E008F9273 /* Info.plist */,
 			);
@@ -362,6 +371,15 @@
 				8E471BCE22D51F35008F9273 /* CurrentWeatherViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8E64F3CC22F17C680055EBEB /* MOCdata */ = {
+			isa = PBXGroup;
+			children = (
+				8E64F3CD22F17C680055EBEB /* weatherMOC.json */,
+				8E64F3CE22F17C680055EBEB /* MOCHelper.swift */,
+			);
+			path = MOCdata;
 			sourceTree = "<group>";
 		};
 		8EF6EB4C22D28AA4001CA073 /* Libs */ = {
@@ -624,6 +642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3689B1D8221BE67E00E50ED5 /* LaunchScreen.storyboard in Resources */,
+				8E64F3DA22F180730055EBEB /* weatherMOC.json in Resources */,
 				8E471BC722D47CCC008F9273 /* Localizable.strings in Resources */,
 				8EF6EB5422D28D10001CA073 /* Weather.storyboard in Resources */,
 				3689B1D5221BE67E00E50ED5 /* Assets.xcassets in Resources */,
@@ -648,6 +667,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E64F3DC22F181270055EBEB /* weatherMOC.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +675,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E64F3CF22F17C680055EBEB /* weatherMOC.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +707,7 @@
 				8EF6EB7122D29184001CA073 /* String+Extension.swift in Sources */,
 				8EC02E2F22E21E4E002B59C6 /* ArrowBackBtn.swift in Sources */,
 				8E3904E722EEF011000BA92A /* Double+Extension.swift in Sources */,
+				8E64F3DB22F180730055EBEB /* MOCHelper.swift in Sources */,
 				8EF6EB4E22D28AD6001CA073 /* UIApplication+Extension.swift in Sources */,
 				8E3904E522EEDCCD000BA92A /* CountryCodes.swift in Sources */,
 				8E471BCC22D518FE008F9273 /* UINavigationController+Extension.swift in Sources */,
@@ -721,6 +743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3689B232221C045800E50ED5 /* CurrentWeather.swift in Sources */,
+				8E64F3DD22F1812A0055EBEB /* MOCHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +752,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E471BBC22D4781E008F9273 /* forecastTests.swift in Sources */,
+				8E64F3D022F17C680055EBEB /* MOCHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

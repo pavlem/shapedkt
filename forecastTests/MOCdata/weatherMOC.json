@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": -48.09,
+        "lat": -15.79
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 286.04,
+        "pressure": 1020,
+        "humidity": 82,
+        "temp_min": 284.26,
+        "temp_max": 288.15
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 1,
+        "deg": 270
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1564558535,
+    "sys": {
+        "type": 1,
+        "id": 8336,
+        "message": 0.0068,
+        "country": "BR",
+        "sunrise": 1564565790,
+        "sunset": 1564606851
+    },
+    "timezone": -10800,
+    "id": 3469058,
+    "name": "Brasilia",
+    "cod": 200
+}

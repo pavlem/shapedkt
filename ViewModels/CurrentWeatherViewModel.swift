@@ -43,22 +43,22 @@ struct CurrentWeatherViewModel {
     var detailesDescription: String {
         var genDescr = ""
         if let genDescription = self.generalDescription {
-            genDescr = "Today".localized + genDescription + "."
+            genDescr = "Today".localized + " " + genDescription + "."
         }
         
         var temp = ""
         if let curT = self.currentT {
-            temp = " " + "CurrentT".localized + curT + "."
+            temp = " " + "CurrentT".localized + " " + curT + "."
         }
         
         var highLow = ""
         if let hightT = self.highestTemp, let lowT = self.lowestTemp {
-            highLow = " " + "HighLow".localized + hightT + "," + lowT + "."
+            highLow = " " + "HighLow".localized + " " + hightT + ", " + lowT + "."
         }
         
         var sunriseSunset = ""
         if let sunR = self.sunrise, let sunS = self.sunset {
-            sunriseSunset = " " + sunR + ", " + sunS + "."
+            sunriseSunset = " " + sunR + "h" + " and " + sunS + "h" + "."
         }
 
         return genDescr + temp + highLow + sunriseSunset
@@ -92,6 +92,30 @@ struct CurrentWeatherViewModel {
             return self.tInFMin
         }
     }
+    
+    var lowestTempD: String? {
+        if isMetric {
+            return "LowestT".localized + " " + self.tInCMin!
+        } else {
+            return "LowestT".localized + " " + self.tInFMin!
+        }
+    }
+    
+    var highestTempD: String? {
+        if isMetric {
+            return "HighestT".localized + " " + self.tInCMax!
+        } else {
+            return "HighestT".localized + " " + self.tInFMax!
+        }
+    }
+    
+    var currentTD: String? {
+        if isMetric {
+            return "CurrentT".localized + " " + self.tInC!
+        } else {
+            return "CurrentT".localized + " " + self.tInF!
+        }
+    }
 
     // MARK: - Inits
     init(weather: CurrentWeather) {
@@ -121,7 +145,7 @@ struct CurrentWeatherViewModel {
         self.dateForDataRetreived = CurrentWeatherViewModel.getDateString(weather.date)
         self.sunset = CurrentWeatherViewModel.getSunset(weather.sys?.sunset)
         self.sunrise = CurrentWeatherViewModel.getSunrise(weather.sys?.sunrise)
-        self.timeZone = CurrentWeatherViewModel.getTimeZoneOffset(offestInSec: weather.timezone)
+        self.timeZone = "Timezone".localized + " " + (CurrentWeatherViewModel.getTimeZoneOffset(offestInSec: weather.timezone) ?? "") + " " + "FromGMT".localized
         self.countryCode = weather.sys?.country
     }
 }
@@ -176,12 +200,12 @@ extension CurrentWeatherViewModel {
     
     static func get(cityName: String?) -> String? {
         guard let cityName = cityName else { return nil }
-        return "cityName".localized + " " + cityName
+        return "CityName".localized + " " + cityName
     }
 
     static func getCloudiness(_ cloudiness: Int?) -> String? {
         guard let cloudiness = cloudiness else { return nil }
-        return "cloudiness".localized + " " + (cloudiness == 1 ? "complete".localized : "none".localized)
+        return "Cloudiness".localized + " " + (cloudiness == 1 ? "Complete".localized : "none".localized)
     }
     
     static func getCordinates(lat: Double?, long: Double?) -> String? {
@@ -194,9 +218,9 @@ extension CurrentWeatherViewModel {
     static func getTemperature(tempInKelvin: Double?, isMetric: Bool) -> String? {
         guard let temp = tempInKelvin else { return nil }
         if isMetric {
-            return String(CurrentWeatherViewModel.getTempInC(fromKelvin: temp))
+            return String(CurrentWeatherViewModel.getTempInC(fromKelvin: temp)) + " C"
         }
-        return String(CurrentWeatherViewModel.getTempInF(fromKelvin: temp))
+        return String(CurrentWeatherViewModel.getTempInF(fromKelvin: temp)) + " F"
     }
     
     // D
@@ -221,22 +245,22 @@ extension CurrentWeatherViewModel {
     
     static func get(pressure: Double?) -> String? {
         guard let pressure = pressure else { return nil }
-        return "pressureIs".localized + " " + String(pressure)
+        return "PressureIs".localized + " " + String(pressure)
     }
     
     static func get(humidity: Double?) -> String? {
         guard let humidity = humidity else { return nil }
-        return "humidityIs".localized + " " + String(humidity)
+        return "HumidityIs".localized + " " + String(humidity)
     }
     
     static func get(seaLvlPressure: Double?) -> String? {
         guard let seaLvlPressure = seaLvlPressure else { return nil }
-        return "seaLvlPressureIs".localized + " " + String(seaLvlPressure)
+        return "SeaLvlPressureIs".localized + " " + String(seaLvlPressure)
     }
     
     static func get(groundLlvPressure: Double?) -> String? {
         guard let groundLlvPressure = groundLlvPressure else { return nil }
-        return "groundLlvPressureIs".localized + " " + String(groundLlvPressure)
+        return "GroundLlvPressureIs".localized + " " + String(groundLlvPressure)
     }
     
     // D
@@ -251,6 +275,6 @@ extension CurrentWeatherViewModel {
 
     static func get(windSpeedDirection: Double?) -> String? {
         guard let windSpeedDirection = windSpeedDirection else { return nil }
-        return "windSpeedDirectionIs".localized + " " + String(windSpeedDirection)
+        return "WindSpeedDirectionIs".localized + " " + String(windSpeedDirection)
     }
 }

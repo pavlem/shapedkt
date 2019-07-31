@@ -5,12 +5,29 @@
   Created by Pavle Mijatovic on 7/9/19.
   Copyright © 2019 SHAPE A/S. All rights reserved.
 */
-Common_NetworkError = "Du skal have internetforbindelse for at fortsætte.";
-AlertCloseBtn = "Luk";
-SelectedPlaceIs = "Udvalgt sted er:";
-Undefined = "Udefineret";
-LatAndLongAre = "Selected Latitute And Longitude Are DE:";
-Today = "Today DE: ";
-CurrentT = "Current Temp is DE: ";
-HighLow = "High and Low are DE: ";
-SunriseSunset = "Sunrise and Sunset are at DE: ";
+Common_NetworkError = "Please make sure you have an internet connection in order to proceed.";
+AlertCloseBtn = "Close";
+SelectedPlaceIs = "Selected Place Is:";
+Undefined = "Undefined";
+LatAndLongAre = "Selected Latitute And Longitude Are:";
+Today = "Today is";
+CurrentT = "Current Temp is:";
+HighLow = "High and Low are:";
+SunriseSunset = "Sunrise and Sunset are at:";
+MetersPerSecond = "m/s";
+MilesPerHour = "MPH";
+WindSpeedDirectionIs = "Wind Speed Direction:";
+GroundLlvPressureIs = "Ground Level Pressure:";
+SeaLvlPressureIs = "Sea Level Pressure Is";
+HumidityIs = "Humidity:";
+PressureIs = "Pressure:";
+Cloudiness = "Cloudiness:";
+Complete = "Complete";
+CityName = "City Name:";
+Sunrise = "Sunrise:";
+Sunset = "Sunset:";
+LowestT = "Lowest temp:";
+HighestT = "Highest temp:";
+CurrentT = "Current temp";
+Timezone = "Timezone:";
+FromGMT = "From GMT";
