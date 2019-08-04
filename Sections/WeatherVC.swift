@@ -37,6 +37,7 @@ class WeatherVC: BaseVC, Blurrable {
         
         blurrBackground()
 //        addBackBtn(color: .clear, isBorder: true)
-        addBackButton(color: .white)
+//        addBackButton(color: .white)
+        self.navigationController?.navigationBar.isHidden = true
     }
 }

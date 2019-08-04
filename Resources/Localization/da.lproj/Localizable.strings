@@ -31,3 +31,5 @@ HighestT = "Highest temp:";
 CurrentT = "Current temp";
 Timezone = "Timezone:";
 FromGMT = "From GMT";
+Metric = "Metric";
+Imperial = "Imperial";
