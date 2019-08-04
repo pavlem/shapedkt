@@ -11,6 +11,7 @@ import UIKit
 class WeatherVC: BaseVC, Blurrable {
 
     // MARK: - Outlets
+    @IBOutlet weak var testCst: NSLayoutConstraint!
     
     // MARK: - API
     var mainTitle: String?
@@ -35,7 +36,7 @@ class WeatherVC: BaseVC, Blurrable {
         imageView.image = snapshotImg
         view.addSubview(imageView)
         
-        blurrBackground()
+//        blurrBackground()
 //        addBackBtn(color: .clear, isBorder: true)
 //        addBackButton(color: .white)
         self.navigationController?.navigationBar.isHidden = true
