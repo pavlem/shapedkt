@@ -57,10 +57,16 @@ extension WeeatherListTVC {
 
         
         
-        if 100 - scrollView.contentOffset.y < 0 {
+        if 50 - scrollView.contentOffset.y < 0 {
+            
+            weatherVC?.tvContainerTopC.constant = 50.0
             return
+        } else {
+            weatherVC?.tvContainerTopC.constant = 100.0
+
+            cst.constant = 50 - scrollView.contentOffset.y
+
         }
-        cst.constant = 100 - scrollView.contentOffset.y
         
     }
 }
