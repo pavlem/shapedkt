@@ -218,9 +218,9 @@ extension CurrentWeatherViewModel {
     static func getTemperature(tempInKelvin: Double?, isMetric: Bool) -> String? {
         guard let temp = tempInKelvin else { return nil }
         if isMetric {
-            return String(CurrentWeatherViewModel.getTempInC(fromKelvin: temp)) + " C"
+            return String(CurrentWeatherViewModel.getTempInC(fromKelvin: temp)) + " º"
         }
-        return String(CurrentWeatherViewModel.getTempInF(fromKelvin: temp)) + " F"
+        return String(CurrentWeatherViewModel.getTempInF(fromKelvin: temp)) + " °F"
     }
     
     // D

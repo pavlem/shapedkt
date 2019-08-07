@@ -87,12 +87,12 @@ extension forecastTests {
             XCTAssert(weatherVM.shortDescription == "Clear", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.generalDescription == "clear sky", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.iconUrl == "http://openweathermap.org/img/wn/01n@2x.png", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.tInC == "13 C", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.tInCMax == "15 C", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.tInCMin == "11 C", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.tInF == "55 F", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.tInFMax == "59 F", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.tInFMin == "52 F", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInC == "13 º", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInCMax == "15 º", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInCMin == "11 º", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInF == "55 °F", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInFMax == "59 °F", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInFMin == "52 °F", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.pressure == "Pressure: 1020.0", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.humidity == "Humidity: 82.0", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.windSpeedMetric == "1.0 m/s", "🍊🍊, testWeatherVM not ok")
@@ -105,12 +105,12 @@ extension forecastTests {
             XCTAssert(weatherVM.timeZone == "Timezone: -03:00 From GMT", "🍊🍊, testWeatherVM not ok")
 
             // calculated properties
-            XCTAssert(weatherVM.detailesDescription == "Today is clear sky. Current temp 13 C. High and Low are: 15 C, 11 C. Sunrise: 11:36h and Sunset: 23:00h.", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.detailesDescription == "Today is clear sky. Current temp 13 º. High and Low are: 15 º, 11 º. Sunrise: 11:36h and Sunset: 23:00h.", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.countryDetails.countryName == "Brazil", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.countryDetails.countryFlag == "🇧🇷", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.lowestTempD == "Lowest temp: 11 C", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.highestTempD == "Highest temp: 15 C", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.currentTD == "Current temp 13 C", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.lowestTempD == "Lowest temp: 11 º", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.highestTempD == "Highest temp: 15 º", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.currentTD == "Current temp 13 º", "🍊🍊, testWeatherVM not ok")
         }
     }
 }
