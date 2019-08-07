@@ -10,16 +10,24 @@ import UIKit
 
 class WeeatherListTVC: UITableViewController {
     
+    // MARK: - Properties
+    // MARK: Outlets
+    @IBOutlet weak var longerDescriptionLbl: UILabel!
+    @IBOutlet weak var weatherStandardChooser: UISegmentedControl!
+    // MARK: Vars
+    private var weatherVC: WeatherVC? {
+        if let wVC = self.parent as? WeatherVC {
+            return wVC
+        }
+        return nil
+    }
+    
+    
+    
     let source = ["1", "2", "3", "1", "2", "3", "1", "2", "3", "1", "2", "3", "1", "2", "3"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -27,28 +35,16 @@ class WeeatherListTVC: UITableViewController {
         return source.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeeatherListCell_ID", for: indexPath)
 
         cell.textLabel?.text = source[indexPath.row]
-        // Configure the cell...
-
         return cell
-    }
-    
-    
-    var weatherVC: WeatherVC? {
-        if let wVC = self.parent as? WeatherVC {
-            return wVC
-        }
-        return nil
     }
 }
 
 extension WeeatherListTVC {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         
         weatherVC?.tempAndIcon.alpha = 1 - (scrollView.contentOffset.y / 200)
 
@@ -69,6 +65,5 @@ extension WeeatherListTVC {
 //            weatherVC?.tempAndIcon.alpha = 1 - (1 / (50 - scrollView.contentOffset.y))
 
         }
-        
     }
 }

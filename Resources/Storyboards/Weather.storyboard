@@ -18,11 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6c7-l3-YlF">
-                                <rect key="frame" x="144" y="426" width="86" height="191"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-fg-Xa7">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -123,9 +118,13 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="selectedAreaLbl" destination="OBS-Bb-8X7" id="pqX-XA-yEb"/>
                         <outlet property="tempAndIcon" destination="f2D-vT-xA6" id="qiy-J6-xQ5"/>
+                        <outlet property="tempLbl" destination="IM4-wJ-d2J" id="Krc-DN-SZT"/>
                         <outlet property="testCst" destination="I5h-g4-XEr" id="ULz-br-lZU"/>
                         <outlet property="tvContainerTopC" destination="qE2-aV-89x" id="lQB-6f-ruP"/>
+                        <outlet property="weatherDescriptionLbl" destination="2nq-f7-VJv" id="8yC-Nq-M1J"/>
+                        <outlet property="weatherImgVieew" destination="Jov-nE-jhQ" id="SUO-vm-mB0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWf-6v-JwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="f5Z-VG-txT">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="f5Z-VG-txT">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -156,17 +155,11 @@
                                     <rect key="frame" x="127" y="164" width="121" height="28"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
-                                        <segment title="First"/>
-                                        <segment title="Second"/>
+                                        <segment title="Meetric"/>
+                                        <segment title="Imperial"/>
                                     </segments>
+                                    <color key="tintColor" red="0.1411667466" green="0.1411831975" blue="0.14115303749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </segmentedControl>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clear Sky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIw-Vr-hgu">
-                                    <rect key="frame" x="151" y="106" width="73" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                         </view>
@@ -187,6 +180,10 @@
                             <outlet property="delegate" destination="2QQ-ca-ZAl" id="X2q-hz-kYZ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="longerDescriptionLbl" destination="jGp-X6-sG4" id="JFM-Q7-bVU"/>
+                        <outlet property="weatherStandardChooser" destination="wtr-pz-Heb" id="Sue-2N-oHO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WgL-Hj-uHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
