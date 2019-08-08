@@ -12,9 +12,7 @@ class ArrowBackBtn: UIButton {
     override func draw(_ rect: CGRect) {
         let viewArr = ArrowBackBtnView(frame: CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.size.width, height: rect.size.height))
         viewArr.strokeColor = .white
-        viewArr.backgroundColor = self.backgroundColor
-        let image = viewArr.imageFromView()
-        
+        viewArr.backgroundColor = self.backgroundColor        
         setImage(viewArr.imageFromView(), for: .normal)
         layer.cornerRadius = viewArr.frame.size.width / 2
         layer.masksToBounds = true
