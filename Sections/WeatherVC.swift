@@ -68,7 +68,7 @@ class WeatherVC: BaseVC, Blurrable {
         weatherDescriptionLbl.font = UIFont.systemFont(ofSize: 17)
         selectedAreaLbl.font = UIFont.systemFont(ofSize: 17)
 
-        if let weeatherListTVC = self.children.first as? WeeatherListTVC {
+        if let weeatherListTVC = self.children.first as? WeatherListTVC {
             weeatherListTVC.currentWeatherViewModel = self.currentWeatherViewModel
         }
         
