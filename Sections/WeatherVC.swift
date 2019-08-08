@@ -25,7 +25,13 @@ class WeatherVC: BaseVC, Blurrable {
     @IBOutlet weak var weatherImgView: UIImageView!
     // MARK: Vars
     private var dataTask: URLSessionDataTask?
-
+    private var areaInfo: String {
+        let city = currentWeatherViewModel?.city ?? ""
+        let cName = currentWeatherViewModel?.countryDetails.countryName ?? ""
+        let cFlag = currentWeatherViewModel?.countryDetails.countryFlag ?? ""
+        return city + ", " + cName + " " + cFlag
+    }
+    
     // MARK: - Overrides
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -77,7 +83,7 @@ class WeatherVC: BaseVC, Blurrable {
     
     private func setTxt() {
         temperatureLbl.text = currentWeatherViewModel?.currentT ?? ""
-        selectedAreaLbl.text = (currentWeatherViewModel?.city ?? "") + ", " + (currentWeatherViewModel?.countryDetails.countryName ?? "")
+        selectedAreaLbl.text = areaInfo
         weatherDescriptionLbl.text = currentWeatherViewModel?.generalDescription ?? ""
     }
     
