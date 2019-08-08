@@ -98,14 +98,14 @@
                                 <constraints>
                                     <constraint firstItem="f2D-vT-xA6" firstAttribute="centerX" secondItem="zVM-hR-KhD" secondAttribute="centerX" id="8iv-EJ-ZrN"/>
                                     <constraint firstItem="OBS-Bb-8X7" firstAttribute="centerX" secondItem="zVM-hR-KhD" secondAttribute="centerX" id="8wZ-86-Loz"/>
-                                    <constraint firstItem="OBS-Bb-8X7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zVM-hR-KhD" secondAttribute="leading" constant="8" id="IOy-T2-gfq"/>
+                                    <constraint firstItem="OBS-Bb-8X7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zVM-hR-KhD" secondAttribute="leading" constant="40" id="IOy-T2-gfq"/>
                                     <constraint firstItem="2nq-f7-VJv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zVM-hR-KhD" secondAttribute="leading" constant="8" id="K3D-V0-FMC"/>
                                     <constraint firstItem="OBS-Bb-8X7" firstAttribute="top" secondItem="zVM-hR-KhD" secondAttribute="top" id="OQW-Pp-kCm"/>
                                     <constraint firstItem="2nq-f7-VJv" firstAttribute="top" secondItem="OBS-Bb-8X7" secondAttribute="bottom" id="Ry0-31-UcI"/>
                                     <constraint firstAttribute="height" constant="50" id="ciF-GJ-UIa"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2nq-f7-VJv" secondAttribute="trailing" constant="8" id="hRZ-Gu-eAM"/>
                                     <constraint firstItem="f2D-vT-xA6" firstAttribute="top" secondItem="2nq-f7-VJv" secondAttribute="bottom" constant="10" id="jIf-K0-qqM"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OBS-Bb-8X7" secondAttribute="trailing" constant="8" id="lB6-di-2Pv"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OBS-Bb-8X7" secondAttribute="trailing" constant="40" id="lB6-di-2Pv"/>
                                     <constraint firstItem="2nq-f7-VJv" firstAttribute="centerX" secondItem="zVM-hR-KhD" secondAttribute="centerX" id="qrd-ni-BlZ"/>
                                 </constraints>
                             </view>

@@ -50,11 +50,10 @@ class BaseVC: UIViewController {
     func addBackButton(color: UIColor? = nil) {
         let buttonImg = UIImage.backBtnImg
         let buttonImgColored = buttonImg.maskWithColor(color: color ?? .black)
-        let btn = UIButton(frame: CGRect(x: 8, y: 20, width: 50, height: 50))
+        let btn = UIButton(frame: CGRect(x: 8, y: 20, width: 30, height: 30))
         btn.setImage(buttonImgColored, for: .normal)
         btn.addTarget(self, action: #selector(self.backBtn), for: .touchUpInside)
         view.addSubview(btn)
-
     }
     
     func addBackBtn(color: UIColor? = .orange, isBorder: Bool) {
