@@ -34,13 +34,19 @@ class WeatherListTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTxt()
         setUI()
     }
 
     // MARK: - Helper
-    private func setUI() {
+    private func setTxt() {
         weatherStandardChooser.setTitle("Metric".localized, forSegmentAt: MeasuringSystem.metric.rawValue)
         weatherStandardChooser.setTitle("Imperial".localized, forSegmentAt: MeasuringSystem.imperial.rawValue)
+    }
+    
+    private func setUI() {
+        longerDescriptionLbl.textColor = .white
+        weatherStandardChooser.tintColor = .white
     }
     
     private func reloadUI() {
@@ -55,24 +61,20 @@ class WeatherListTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let weatherCell = tableView.dequeueReusableCell(withIdentifier: "WeatherListCell_ID", for: indexPath) as! WeatherListCell
-        weatherCell.wData.text = weatherDataList?[indexPath.row]
-//        weatherCell.textLabel?.text = weatherDataList?[indexPath.row]
+        let weatherCell = tableView.dequeueReusableCell(withIdentifier: WeatherListCell.id, for: indexPath) as! WeatherListCell
+        weatherCell.weatherData = WeatherListData(wData: weatherDataList?[indexPath.row])
         return weatherCell
     }
     
     // MARK: - Actions
     @IBAction func strandardOption(_ sender: UISegmentedControl) {
-        
         switch MeasuringSystem(rawValue: sender.selectedSegmentIndex)! {
         case .metric:
-            aprint("metric")
             currentWeatherViewModel?.isMetric = true
             reloadUI()
         case .imperial:
             currentWeatherViewModel?.isMetric = false
             reloadUI()
-            aprint("imperial")
         }
     }
 }

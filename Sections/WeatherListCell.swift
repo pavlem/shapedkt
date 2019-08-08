@@ -8,15 +8,41 @@
 
 import UIKit
 
+struct WeatherListData {
+    let wData: String?
+}
+
 class WeatherListCell: UITableViewCell {
     
+    // MARK: - API
+    var weatherData: WeatherListData? {
+        willSet {
+            updateUI(withWeatherData: newValue)
+        }
+    }
+    
+    // MARK: - Properties
+    // MARK: Outlets
+    @IBOutlet weak var wData: UILabel!
+    // MARK: Constants
     static let id = "WeatherListCell_ID"
 
-    @IBOutlet weak var wData: UILabel!
+    // MARK: - Helper
+    private func updateUI(withWeatherData weatherData: WeatherListData?) {
+        wData.text = weatherData?.wData
+    }
     
+    private func setUI() {
+        selectionStyle = .none
+        wData.textColor = .white
+        wData.font = UIFont.systemFont(ofSize: 17)
+    }
+    
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +50,4 @@ class WeatherListCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

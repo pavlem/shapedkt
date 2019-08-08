@@ -64,7 +64,7 @@ class WeatherVC: BaseVC, Blurrable {
         weatherDescriptionLbl.textColor = UIColor.white
         selectedAreaLbl.textColor = UIColor.white
         
-        temperatureLbl.font = UIFont.boldSystemFont(ofSize: 40)
+        temperatureLbl.font = UIFont.boldSystemFont(ofSize: 50)
         weatherDescriptionLbl.font = UIFont.systemFont(ofSize: 17)
         selectedAreaLbl.font = UIFont.systemFont(ofSize: 17)
 

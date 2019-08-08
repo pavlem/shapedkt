@@ -160,7 +160,7 @@
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wtr-pz-Heb">
                                     <rect key="frame" x="124" y="163" width="127" height="29"/>
                                     <segments>
-                                        <segment title="Meetric"/>
+                                        <segment title="Metric"/>
                                         <segment title="Imperial"/>
                                     </segments>
                                     <color key="tintColor" red="0.1411667466" green="0.1411831975" blue="0.14115303749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
