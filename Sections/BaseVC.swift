@@ -46,11 +46,10 @@ class BaseVC: UIViewController {
         ReachabilityHelper.shared.delegate = self
     }
     
-    
     func addBackButton(color: UIColor? = nil) {
         let buttonImg = UIImage.backBtnImg
         let buttonImgColored = buttonImg.maskWithColor(color: color ?? .black)
-        let btn = UIButton(frame: CGRect(x: 8, y: 20, width: 30, height: 30))
+        let btn = UIButton(frame: CGRect(x: 8, y: 28, width: 30, height: 30))
         btn.setImage(buttonImgColored, for: .normal)
         btn.addTarget(self, action: #selector(self.backBtn), for: .touchUpInside)
         view.addSubview(btn)
