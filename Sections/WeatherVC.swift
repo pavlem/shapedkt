@@ -29,6 +29,7 @@ class WeatherVC: BaseVC, Blurrable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTxt()
         setUI()
         
         if let urlIcon = URL(string:  currentWeatherViewModel!.iconUrl!) {
@@ -40,9 +41,6 @@ class WeatherVC: BaseVC, Blurrable {
                 }
             }
         }
-        
-
-        
     }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
@@ -55,12 +53,21 @@ class WeatherVC: BaseVC, Blurrable {
     }
     
     // MARK: - Helper
-    func setUI() {
-        
+    func setTxt() {
         temperatureLbl.text = currentWeatherViewModel?.currentT ?? ""
         selectedAreaLbl.text = (currentWeatherViewModel?.city ?? "") + ", " + (currentWeatherViewModel?.countryDetails.countryName ?? "")
         weatherDescriptionLbl.text = currentWeatherViewModel?.generalDescription ?? ""
+    }
+    
+    func setUI() {
+        temperatureLbl.textColor = UIColor.white
+        weatherDescriptionLbl.textColor = UIColor.white
+        selectedAreaLbl.textColor = UIColor.white
         
+        temperatureLbl.font = UIFont.boldSystemFont(ofSize: 40)
+        weatherDescriptionLbl.font = UIFont.systemFont(ofSize: 17)
+        selectedAreaLbl.font = UIFont.systemFont(ofSize: 17)
+
         if let weeatherListTVC = self.children.first as? WeeatherListTVC {
             weeatherListTVC.currentWeatherViewModel = self.currentWeatherViewModel
         }
@@ -71,7 +78,6 @@ class WeatherVC: BaseVC, Blurrable {
         imageView.image = backgroundImg
         view.addSubview(imageView)
         view.sendSubviewToBack(imageView)
-        
 //        addBackBtn(color: .clear, isBorder: true)
         addBackButton(color: .white)
         self.navigationController?.navigationBar.isHidden = true
