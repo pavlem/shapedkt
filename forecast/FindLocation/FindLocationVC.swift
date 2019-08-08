@@ -115,13 +115,11 @@ extension FindLocationVC: FindLocationPresenterOutput {
             weatherVC.currentWeatherViewModel = currentWeatherViewModel
             
             let img = self.view.takeScreenshot()
-            weatherVC.snapshotImg = img
-            
+            weatherVC.backgroundImg = img
 //            weatherVC.view.backgroundColor = UIColor.clear
-            weatherVC.providesPresentationContextTransitionStyle = true
-            weatherVC.definesPresentationContext = true
-            weatherVC.modalPresentationStyle = .overCurrentContext
-//            self.navigationController?.pushViewController(weatherVC, animated: true)
+//            weatherVC.providesPresentationContextTransitionStyle = true
+//            weatherVC.definesPresentationContext = true
+//            weatherVC.modalPresentationStyle = .overCurrentContext
             self.navigationController?.customPush(weatherVC)
             
             

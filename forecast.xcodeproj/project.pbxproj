@@ -48,6 +48,7 @@
 		8E64F3DB22F180730055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
 		8E64F3DC22F181270055EBEB /* weatherMOC.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E64F3CD22F17C680055EBEB /* weatherMOC.json */; };
 		8E64F3DD22F1812A0055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
+		8EBC340B22FC11C000C5DF0F /* MeasuringSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBC340A22FC11C000C5DF0F /* MeasuringSystem.swift */; };
 		8EC02E2D22E21E08002B59C6 /* ArrowBackBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */; };
 		8EC02E2F22E21E4E002B59C6 /* ArrowBackBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */; };
 		8EC02E3122E3332A002B59C6 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E3022E3332A002B59C6 /* UIImage+Extension.swift */; };
@@ -170,6 +171,7 @@
 		8E471BCE22D51F35008F9273 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
 		8E64F3CD22F17C680055EBEB /* weatherMOC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weatherMOC.json; sourceTree = "<group>"; };
 		8E64F3CE22F17C680055EBEB /* MOCHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOCHelper.swift; sourceTree = "<group>"; };
+		8EBC340A22FC11C000C5DF0F /* MeasuringSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringSystem.swift; sourceTree = "<group>"; };
 		8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBackBtnView.swift; sourceTree = "<group>"; };
 		8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBackBtn.swift; sourceTree = "<group>"; };
 		8EC02E3022E3332A002B59C6 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				3689B1F2221BF51600E50ED5 /* API */,
 				3689B205221BF5F000E50ED5 /* Client */,
 				3689B225221C03BB00E50ED5 /* Entities */,
+				8EBC340922FC11AF00C5DF0F /* Models */,
 				8E471BCD22D51F11008F9273 /* ViewModels */,
 				8EF6EB4C22D28AA4001CA073 /* Libs */,
 				8EF6EB6D22D290A8001CA073 /* Sections */,
@@ -382,6 +385,14 @@
 				8E64F3CE22F17C680055EBEB /* MOCHelper.swift */,
 			);
 			path = MOCdata;
+			sourceTree = "<group>";
+		};
+		8EBC340922FC11AF00C5DF0F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8EBC340A22FC11C000C5DF0F /* MeasuringSystem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8EF6EB4C22D28AA4001CA073 /* Libs */ = {
@@ -691,6 +702,7 @@
 			files = (
 				8EC02E3322E33378002B59C6 /* UIView+Extension.swift in Sources */,
 				8EF6EB6C22D29072001CA073 /* Reachability.swift in Sources */,
+				8EBC340B22FC11C000C5DF0F /* MeasuringSystem.swift in Sources */,
 				8EC02E2D22E21E08002B59C6 /* ArrowBackBtnView.swift in Sources */,
 				3689B1E7221BE8EE00E50ED5 /* FindLocationInteractor.swift in Sources */,
 				3689B1E5221BE8E500E50ED5 /* FindLocationVC.swift in Sources */,

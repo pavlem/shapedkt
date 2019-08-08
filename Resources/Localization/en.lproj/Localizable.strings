@@ -33,3 +33,4 @@ Timezone = "Timezone:";
 FromGMT = "From GMT";
 Metric = "Metric";
 Imperial = "Imperial";
+WindSpeed = "Windspeed:";

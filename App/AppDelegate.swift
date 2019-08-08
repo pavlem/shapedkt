@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let client = ForecastClient(appId: "81eaa1dfd3d6c25914722a61a966baf8")
         window?.rootViewController = UINavigationController(rootViewController: FindLocationConfig.setup(api: client))
+        
+//        window?.rootViewController = UINavigationController(rootViewController: UIStoryboard.weatherVC)
         window?.makeKeyAndVisible()
     }
     

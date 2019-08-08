@@ -32,6 +32,7 @@ struct CurrentWeatherViewModel {
     let windSpeedDirection: String?
     let clouds: String?
     let cityName: String?
+    let city: String?
     let dateForDataRetreived: String?
     let sunrise: String?
     let sunset: String?
@@ -116,12 +117,20 @@ struct CurrentWeatherViewModel {
             return "CurrentT".localized + " " + self.tInF!
         }
     }
+    
+    var windSpeedD: String? {
+        if isMetric {
+            return "WindSpeed".localized + " " + self.windSpeedMetric!
+        } else {
+            return "WindSpeed".localized + " " + self.windSpeedImperial!
+        }
+    }
 
     // MARK: - Inits
     init(weather: CurrentWeather) {
         self.coordinates = CurrentWeatherViewModel.getCordinates(lat: weather.coord?.lat, long: weather.coord?.lon)
         self.shortDescription = weather.weather?.first?.main
-        self.generalDescription = weather.weather?.first?.description
+        self.generalDescription = weather.weather?.first?.description?.capitalized
         
         self.tInC = CurrentWeatherViewModel.getTemperature(tempInKelvin: weather.main?.temp, isMetric: true)
         self.tInF =  CurrentWeatherViewModel.getTemperature(tempInKelvin: weather.main?.temp, isMetric: false)
@@ -140,8 +149,9 @@ struct CurrentWeatherViewModel {
         self.windSpeedImperial = CurrentWeatherViewModel.getWindSpeed(weather.wind?.speed, isMetric: false)
         self.windSpeedDirection = CurrentWeatherViewModel.get(windSpeedDirection: weather.wind?.deg)
         
-        self.clouds = CurrentWeatherViewModel.getCloudiness(weather.clouds?.all)
+        self.clouds = CurrentWeatherViewModel.getCloudiness(weather.clouds?.all)?.capitalized
         self.cityName = CurrentWeatherViewModel.get(cityName: weather.name)
+        self.city = weather.name
         self.dateForDataRetreived = CurrentWeatherViewModel.getDateString(weather.date)
         self.sunset = CurrentWeatherViewModel.getSunset(weather.sys?.sunset)
         self.sunrise = CurrentWeatherViewModel.getSunrise(weather.sys?.sunrise)
@@ -245,22 +255,22 @@ extension CurrentWeatherViewModel {
     
     static func get(pressure: Double?) -> String? {
         guard let pressure = pressure else { return nil }
-        return "PressureIs".localized + " " + String(pressure)
+        return "PressureIs".localized + " " + String(pressure)  + " hPa"
     }
     
     static func get(humidity: Double?) -> String? {
         guard let humidity = humidity else { return nil }
-        return "HumidityIs".localized + " " + String(humidity)
+        return "HumidityIs".localized + " " + String(humidity) + " %"
     }
     
     static func get(seaLvlPressure: Double?) -> String? {
         guard let seaLvlPressure = seaLvlPressure else { return nil }
-        return "SeaLvlPressureIs".localized + " " + String(seaLvlPressure)
+        return "SeaLvlPressureIs".localized + " " + String(seaLvlPressure) + " hPa"
     }
     
     static func get(groundLlvPressure: Double?) -> String? {
         guard let groundLlvPressure = groundLlvPressure else { return nil }
-        return "GroundLlvPressureIs".localized + " " + String(groundLlvPressure)
+        return "GroundLlvPressureIs".localized + " " + String(groundLlvPressure) + " hPa"
     }
     
     // D
@@ -276,5 +286,68 @@ extension CurrentWeatherViewModel {
     static func get(windSpeedDirection: Double?) -> String? {
         guard let windSpeedDirection = windSpeedDirection else { return nil }
         return "WindSpeedDirectionIs".localized + " " + String(windSpeedDirection)
+    }
+}
+
+extension CurrentWeatherViewModel {
+    var weatherDataArray: [String] {
+        var dataArr = [String]()
+        if let lowestT = lowestTempD {
+            dataArr.append(lowestT)
+        }
+        
+        if let highestT = highestTempD {
+            dataArr.append(highestT)
+        }
+        
+        if let currentT = currentTD {
+            dataArr.append(currentT)
+        }
+        
+        if let sunrise = self.sunrise {
+            dataArr.append(sunrise)
+        }
+        
+        if let sunset = self.sunset {
+            dataArr.append(sunset)
+        }
+        
+        if let pressure = self.pressure {
+            dataArr.append(pressure)
+        }
+        
+        if let humidity = self.humidity {
+            dataArr.append(humidity)
+        }
+        
+        if let seaLlvPressure = self.seaLlvPressure {
+            dataArr.append(seaLlvPressure)
+        }
+        
+        if let groundLlvPressure = self.groundLlvPressure {
+            dataArr.append(groundLlvPressure)
+        }
+        
+        if let windSpeedD = windSpeedD {
+            dataArr.append(windSpeedD)
+        }
+        
+        if let windSpeedDirection = self.windSpeedDirection {
+            dataArr.append(windSpeedDirection)
+        }
+        
+        if let timeZone = self.timeZone {
+            dataArr.append(timeZone)
+        }
+        
+        if let clouds = self.clouds {
+            dataArr.append(clouds)
+        }
+        
+        if let cityName = self.cityName {
+            dataArr.append(cityName)
+        }
+        
+        return dataArr
     }
 }
