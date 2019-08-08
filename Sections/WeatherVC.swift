@@ -23,10 +23,12 @@ class WeatherVC: BaseVC, Blurrable {
     @IBOutlet weak var weatherDescriptionLbl: UILabel!
     @IBOutlet weak var temperatureLbl: UILabel!
     @IBOutlet weak var weatherImgView: UIImageView!
+    // MARK: Vars
+    private var dataTask: URLSessionDataTask?
 
     // MARK: - Overrides
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent // .default
+        return .lightContent
     }
     
     // MARK: - Lifecycle
@@ -36,34 +38,50 @@ class WeatherVC: BaseVC, Blurrable {
         setTxt()
         setUI()
         
-        if let urlIcon = URL(string:  currentWeatherViewModel!.iconUrl!) {
-            getData(from: urlIcon) { data, response, error  in
-                guard let data = data, error == nil else { return }
-                print(response?.suggestedFilename ?? urlIcon.lastPathComponent)
+        if let urlString =  currentWeatherViewModel?.iconUrl {
+            fetchWeatherIcon(forUrlString: urlString) { [weak self] (imgData) in
+                guard let `self` = self else { return }
                 DispatchQueue.main.async() {
-                    self.weatherImgView.image = UIImage(data: data)
+                    self.weatherImgView.image = UIImage(data: imgData)
                 }
             }
         }
     }
-    
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
+        dataTask?.cancel()
+    }
+    
     // MARK: - Actions
     @IBAction func popBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Helper
-    func setTxt() {
+    private func fetchWeatherIcon(forUrlString urlString: String, success: @escaping (Data) -> Void)  {
+        if let urlIcon = URL(string:  urlString) {
+            getData(from: urlIcon) { data, response, error  in
+                guard let data = data, error == nil else { return }
+                success(data)
+            }
+        }
+    }
+    
+    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let dTask = URLSession.shared.dataTask(with: url, completionHandler: completion)
+        self.dataTask = dTask
+        dTask.resume()
+    }
+    
+    private func setTxt() {
         temperatureLbl.text = currentWeatherViewModel?.currentT ?? ""
         selectedAreaLbl.text = (currentWeatherViewModel?.city ?? "") + ", " + (currentWeatherViewModel?.countryDetails.countryName ?? "")
         weatherDescriptionLbl.text = currentWeatherViewModel?.generalDescription ?? ""
     }
     
-    func setUI() {
+    private func setUI() {
         temperatureLbl.textColor = UIColor.white
         weatherDescriptionLbl.textColor = UIColor.white
         selectedAreaLbl.textColor = UIColor.white
