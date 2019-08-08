@@ -48,6 +48,7 @@
 		8E64F3DB22F180730055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
 		8E64F3DC22F181270055EBEB /* weatherMOC.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E64F3CD22F17C680055EBEB /* weatherMOC.json */; };
 		8E64F3DD22F1812A0055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
+		8E7D1E7322FC6E770005A9A0 /* WeatherListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D1E7222FC6E770005A9A0 /* WeatherListCell.swift */; };
 		8EBC340B22FC11C000C5DF0F /* MeasuringSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBC340A22FC11C000C5DF0F /* MeasuringSystem.swift */; };
 		8EC02E2D22E21E08002B59C6 /* ArrowBackBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */; };
 		8EC02E2F22E21E4E002B59C6 /* ArrowBackBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */; };
@@ -171,6 +172,7 @@
 		8E471BCE22D51F35008F9273 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
 		8E64F3CD22F17C680055EBEB /* weatherMOC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weatherMOC.json; sourceTree = "<group>"; };
 		8E64F3CE22F17C680055EBEB /* MOCHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOCHelper.swift; sourceTree = "<group>"; };
+		8E7D1E7222FC6E770005A9A0 /* WeatherListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListCell.swift; sourceTree = "<group>"; };
 		8EBC340A22FC11C000C5DF0F /* MeasuringSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringSystem.swift; sourceTree = "<group>"; };
 		8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBackBtnView.swift; sourceTree = "<group>"; };
 		8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBackBtn.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 				8EF6EB6E22D290BE001CA073 /* BaseVC.swift */,
 				8EF6EB5B22D28DA1001CA073 /* WeatherVC.swift */,
 				8E24B8C122F6E6490083A9C4 /* WeatherListTVC.swift */,
+				8E7D1E7222FC6E770005A9A0 /* WeatherListCell.swift */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				8EC02E3122E3332A002B59C6 /* UIImage+Extension.swift in Sources */,
 				8EF6EB6422D28EAE001CA073 /* UIColor+Extension.swift in Sources */,
 				8EF6EB7122D29184001CA073 /* String+Extension.swift in Sources */,
+				8E7D1E7322FC6E770005A9A0 /* WeatherListCell.swift in Sources */,
 				8EC02E2F22E21E4E002B59C6 /* ArrowBackBtn.swift in Sources */,
 				8E3904E722EEF011000BA92A /* Double+Extension.swift in Sources */,
 				8E64F3DB22F180730055EBEB /* MOCHelper.swift in Sources */,

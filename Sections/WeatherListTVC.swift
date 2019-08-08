@@ -55,9 +55,10 @@ class WeatherListTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WeeatherListCell_ID", for: indexPath)
-        cell.textLabel?.text = weatherDataList?[indexPath.row]
-        return cell
+        let weatherCell = tableView.dequeueReusableCell(withIdentifier: "WeatherListCell_ID", for: indexPath) as! WeatherListCell
+        weatherCell.wData.text = weatherDataList?[indexPath.row]
+//        weatherCell.textLabel?.text = weatherDataList?[indexPath.row]
+        return weatherCell
     }
     
     // MARK: - Actions
