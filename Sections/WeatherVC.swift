@@ -10,20 +10,24 @@ import UIKit
 
 class WeatherVC: BaseVC, Blurrable {
 
-    // MARK: - Outlets
+    // MARK: - API
+    var currentWeatherViewModel: CurrentWeatherViewModel?
+    var backgroundImg: UIImage?
+    
+    // MARK: - Properties
+    // MARK: Outlets
     @IBOutlet weak var testCst: NSLayoutConstraint!
     @IBOutlet weak var tvContainerTopC: NSLayoutConstraint!
-    
     @IBOutlet weak var tempAndIcon: UIStackView!
     @IBOutlet weak var selectedAreaLbl: UILabel!
     @IBOutlet weak var weatherDescriptionLbl: UILabel!
     @IBOutlet weak var temperatureLbl: UILabel!
     @IBOutlet weak var weatherImgView: UIImageView!
-    
-    // MARK: - API
-    var mainTitle: String?
-    var currentWeatherViewModel: CurrentWeatherViewModel?
-    var backgroundImg: UIImage?
+
+    // MARK: - Overrides
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent // .default
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
