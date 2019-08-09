@@ -13,6 +13,8 @@ class WeatherVC: BaseVC, Blurrable {
     // MARK: - API
     var currentWeatherViewModel: CurrentWeatherViewModel?
     var backgroundImg: UIImage?
+    var infoViewTopStartValue = CGFloat(0.0)
+    var tvContainerTopStartValue = CGFloat(0.0)
     
     // MARK: - Properties
     // MARK: Outlets
@@ -29,11 +31,12 @@ class WeatherVC: BaseVC, Blurrable {
         let city = currentWeatherViewModel?.city ?? ""
         let cName = currentWeatherViewModel?.countryDetails.countryName ?? ""
         let cFlag = currentWeatherViewModel?.countryDetails.countryFlag ?? ""
+        
+        if city.count == 0 {
+            return cName + " " + cFlag
+        }
         return city + ", " + cName + " " + cFlag
     }
-    
-    var infoViewTopStartValue = CGFloat(0.0)
-    var tvContainerTopStartValue = CGFloat(0.0)
 
     // MARK: - Overrides
     override var preferredStatusBarStyle: UIStatusBarStyle {
