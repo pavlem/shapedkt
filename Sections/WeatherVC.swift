@@ -112,7 +112,6 @@ class WeatherVC: BaseVC, Blurrable {
         imageView.image = backgroundImg
         view.addSubview(imageView)
         view.sendSubviewToBack(imageView)
-//        addBackBtn(color: .clear, isBorder: true)
         addBackButton(color: .white)
         self.navigationController?.navigationBar.isHidden = true
     }

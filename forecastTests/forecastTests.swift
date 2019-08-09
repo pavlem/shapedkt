@@ -19,27 +19,17 @@ class forecastTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
-    func testCoordinateConversion() {
-//        let coordinate1 = Coordinates(clLocationCoordinate2D: CLLocationCoordinate2D(latitude: -9.960892521935094, longitude: -71.81640625000004))
-//        let coordinateFromStringInit1 = Coordinates(latitude: "-9.960892521935094", longitude: "-71.81640625000004")
-//        XCTAssert((coordinate1.latitude, coordinate1.longitude) == (coordinateFromStringInit1.latitude, coordinateFromStringInit1.longitude), "🍊🍊, testCoordinateConversion not ok")
-//
-//        let coordinate2 = Coordinates(clLocationCoordinate2D: CLLocationCoordinate2D(latitude: 42.13573230472247, longitude: 11.810691528326089))
-//        let coordinateFromStringInit2 = Coordinates(latitude: "42.13573230472247", longitude: "11.810691528326089")
-//        XCTAssert((coordinate2.latitude, coordinate2.longitude) == (coordinateFromStringInit2.latitude, coordinateFromStringInit2.longitude), "🍊🍊, testCoordinateConversion not ok")
-    }
 }
 
 // MARK: - CurrentWeatherViewModel
 extension forecastTests {
     func testGetTemperature() {
-        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 300.0, isMetric: true) == "27", "🍊🍊, testGetTemperature not ok")
-        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 300.0, isMetric: false) == "80", "🍊🍊, testGetTemperature not ok")
-        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 400.0, isMetric: true) == "127", "🍊🍊, testGetTemperature not ok")
-        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 400.0, isMetric: false) == "260", "🍊🍊, testGetTemperature not ok")
-        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 200.0, isMetric: true) == "-73", "🍊🍊, testGetTemperature not ok")
-        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 200.0, isMetric: false) == "-100", "🍊🍊, testGetTemperature not ok")
+        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 300.0, isMetric: true) == "27 º", "🍊🍊, testGetTemperature not ok")
+        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 300.0, isMetric: false) == "80 °F", "🍊🍊, testGetTemperature not ok")
+        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 400.0, isMetric: true) == "127 º", "🍊🍊, testGetTemperature not ok")
+        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 400.0, isMetric: false) == "260 °F", "🍊🍊, testGetTemperature not ok")
+        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 200.0, isMetric: true) == "-73 º", "🍊🍊, testGetTemperature not ok")
+        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 200.0, isMetric: false) == "-100 °F", "🍊🍊, testGetTemperature not ok")
     }
     
     func testGetTempInF() {
@@ -85,7 +75,7 @@ extension forecastTests {
             // stored properties
             XCTAssert(weatherVM.coordinates == "Selected Latitute And Longitude Are: -15.79, -48.09", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.shortDescription == "Clear", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.generalDescription == "clear sky", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.generalDescription == "Clear Sky", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.iconUrl == "http://openweathermap.org/img/wn/01n@2x.png", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.tInC == "13 º", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.tInCMax == "15 º", "🍊🍊, testWeatherVM not ok")
@@ -93,24 +83,24 @@ extension forecastTests {
             XCTAssert(weatherVM.tInF == "55 °F", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.tInFMax == "59 °F", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.tInFMin == "52 °F", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.pressure == "Pressure: 1020.0", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.humidity == "Humidity: 82.0", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.pressure == "Pressure: 1020.0 hPa", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.humidity == "Humidity: 82.0 %", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.windSpeedMetric == "1.0 m/s", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.windSpeedImperial == "2.24 MPH", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.windSpeedDirection == "Wind Speed Direction: 270.0", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.clouds == "Cloudiness: none", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.clouds == "Cloudiness: None", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.cityName == "City Name: Brasilia", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.sunrise == "Sunrise: 11:36", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.sunset == "Sunset: 23:00", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.timeZone == "Timezone: -03:00 From GMT", "🍊🍊, testWeatherVM not ok")
 
             // calculated properties
-            XCTAssert(weatherVM.detailesDescription == "Today is clear sky. Current temp 13 º. High and Low are: 15 º, 11 º. Sunrise: 11:36h and Sunset: 23:00h.", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.detailesDescription == "Today is Clear Sky. Current temp: 13 º. High and Low are: 15 º, 11 º. Sunrise: 11:36h and Sunset: 23:00h.", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.countryDetails.countryName == "Brazil", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.countryDetails.countryFlag == "🇧🇷", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.lowestTempD == "Lowest temp: 11 º", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.highestTempD == "Highest temp: 15 º", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.currentTD == "Current temp 13 º", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.currentTD == "Current temp: 13 º", "🍊🍊, testWeatherVM not ok")
         }
     }
 }

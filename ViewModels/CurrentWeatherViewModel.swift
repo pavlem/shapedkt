@@ -224,7 +224,6 @@ extension CurrentWeatherViewModel {
         return "LatAndLongAre".localized + " " + String(latitude) + ", " + String(longitude)
     }
     
-    // D
     static func getTemperature(tempInKelvin: Double?, isMetric: Bool) -> String? {
         guard let temp = tempInKelvin else { return nil }
         if isMetric {
@@ -233,21 +232,18 @@ extension CurrentWeatherViewModel {
         return String(CurrentWeatherViewModel.getTempInF(fromKelvin: temp)) + " °F"
     }
     
-    // D
     static func getTempInF(fromKelvin tempInK: Double) -> Int {
         let doubleValue = (((tempInK - 273.15) * 9/5) + 32).rounded(toPlaces: 0)
         let intValue = Int(doubleValue)
         return intValue
     }
 
-    // D
     static func getTempInC(fromKelvin tempInK: Double) -> Int {
         let doubleValue = (tempInK - 273.15).rounded(toPlaces: 0)
         let intValue = Int(doubleValue)
         return intValue
     }
 
-    // D
     static func getWeatherIconURLString(_ icon: String?) -> String? {
         guard let icon = icon else { return nil }
         return "http://openweathermap.org/img/wn/" + icon + "@2x.png"
@@ -273,7 +269,6 @@ extension CurrentWeatherViewModel {
         return "GroundLlvPressureIs".localized + " " + String(groundLlvPressure) + " hPa"
     }
     
-    // D
     static func getWindSpeed(_ windSpeed: Double?, isMetric: Bool) -> String? {
         guard let speed = windSpeed else { return nil }
         

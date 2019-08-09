@@ -89,7 +89,6 @@ extension WeatherListTVC {
 // MARK: - UIScrollViewDelegate
 extension WeatherListTVC {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
         guard let wVC = weatherVC else { return }
         wVC.tempAndIcon.alpha = 1 - (scrollView.contentOffset.y / tableviewHeader.frame.size.height)
         
