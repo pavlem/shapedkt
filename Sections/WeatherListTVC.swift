@@ -30,6 +30,8 @@ class WeatherListTVC: UITableViewController {
         }
         return nil
     }
+    // MARK: Constants
+    private let tableViewHeaderHeight = CGFloat(200)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -48,23 +50,14 @@ class WeatherListTVC: UITableViewController {
     private func setUI() {
         longerDescriptionLbl.textColor = .white
         weatherStandardChooser.tintColor = .white
+        tableView.addTableFooterView(footerViewHeight: tableViewHeaderHeight, color: .clear)
     }
     
     private func reloadUI() {
+        weatherVC?.temperatureLbl.text = currentWeatherViewModel?.currentT
         weatherDataList = currentWeatherViewModel?.weatherDataArray
         longerDescriptionLbl.text = currentWeatherViewModel?.detailesDescription
         tableView.reloadData()
-    }
-    
-    // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherDataList?.count ?? 0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let weatherCell = tableView.dequeueReusableCell(withIdentifier: WeatherListCell.id, for: indexPath) as! WeatherListCell
-        weatherCell.weatherData = WeatherListData(wData: weatherDataList?[indexPath.row])
-        return weatherCell
     }
     
     // MARK: - Actions
@@ -80,11 +73,25 @@ class WeatherListTVC: UITableViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+extension WeatherListTVC {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weatherDataList?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let weatherCell = tableView.dequeueReusableCell(withIdentifier: WeatherListCell.id, for: indexPath) as! WeatherListCell
+        weatherCell.weatherData = WeatherListData(wData: weatherDataList?[indexPath.row])
+        return weatherCell
+    }
+}
+
+// MARK: - UIScrollViewDelegate
 extension WeatherListTVC {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(scrollView.contentOffset.y)
         guard let wVC = weatherVC else { return }
-        wVC.tempAndIcon.alpha = 1 - (scrollView.contentOffset.y / tableviewHeader.frame.size.height) //200
+        wVC.tempAndIcon.alpha = 1 - (scrollView.contentOffset.y / tableviewHeader.frame.size.height)
         
         if wVC.infoViewTopStartValue - scrollView.contentOffset.y < 0 {
             return

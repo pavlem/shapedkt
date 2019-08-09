@@ -3,7 +3,6 @@
 //  ScanAndGo
 //
 //  Created by Pavle Mijatovic on 7/25/19.
-//  Copyright © 2019 Salling Group. All rights reserved.
 //
 
 import Foundation

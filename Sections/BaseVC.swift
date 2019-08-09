@@ -24,9 +24,6 @@ extension Blurrable {
     func blurrBackground() {
         guard let topPresentedViewController = UIApplication.topPresentedViewController else { return }
         topPresentedViewController.definesPresentationContext = true
-//        view.backgroundColor = .clear
-//        view.addSubview(blurView)
-//        view.sendSubviewToBack((blurView))
         view.insertSubview(blurView, at: 0)
     }
 }
