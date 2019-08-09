@@ -19,6 +19,7 @@ class WeatherListTVC: UITableViewController {
     
     // MARK: - Properties
     // MARK: Outlets
+    @IBOutlet weak var tableviewHeader: UIView!
     @IBOutlet weak var longerDescriptionLbl: UILabel!
     @IBOutlet weak var weatherStandardChooser: UISegmentedControl!
     // MARK: Vars
@@ -81,22 +82,20 @@ class WeatherListTVC: UITableViewController {
 
 extension WeatherListTVC {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        weatherVC?.tempAndIcon.alpha = 1 - (scrollView.contentOffset.y / 200)
-        weatherVC?.temperatureLbl.alpha = 1 - (scrollView.contentOffset.y / 200)
+        print(scrollView.contentOffset.y)
+
+        let alpha = 1 - (scrollView.contentOffset.y / tableviewHeader.frame.size.height) //200
+        weatherVC?.tempAndIcon.alpha = alpha
+        weatherVC?.temperatureLbl.alpha = alpha
         
-//        print(scrollView.contentOffset.y)
 //        guard scrollView.contentOffset.y > 0 else { return }
-        guard let cst = weatherVC?.testCst else { return }
+        guard let cst = weatherVC!.infoViewTopC else { return }
 //        guard cst.constant > 0 else { return }
         if 50 - scrollView.contentOffset.y < 0 {
             return
         } else {
-            weatherVC?.tvContainerTopC.constant = 100 - scrollView.contentOffset.y
+            weatherVC!.tvContainerTopC.constant = 110 - scrollView.contentOffset.y
             cst.constant = 50 - scrollView.contentOffset.y
-//            aprint( 1 - (1 / (50 - scrollView.contentOffset.y)) )
-//            weatherVC?.tempAndIcon.alpha = 1 - (1 / (50 - scrollView.contentOffset.y))
-//            weatherVC?.tempAndIcon.alpha = 1 - (1 / (50 - scrollView.contentOffset.y))
-
         }
     }
 }

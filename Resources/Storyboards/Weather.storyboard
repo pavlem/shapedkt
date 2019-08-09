@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-fg-Xa7">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="2QQ-ca-ZAl" kind="embed" id="eFw-PB-uzP"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVM-hR-KhD">
-                                <rect key="frame" x="0.0" y="70" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belgrade, Serbia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBS-Bb-8X7">
                                         <rect key="frame" x="124.5" y="0.0" width="126.5" height="20.5"/>
@@ -94,7 +94,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.83137254900000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="f2D-vT-xA6" firstAttribute="centerX" secondItem="zVM-hR-KhD" secondAttribute="centerX" id="8iv-EJ-ZrN"/>
                                     <constraint firstItem="OBS-Bb-8X7" firstAttribute="centerX" secondItem="zVM-hR-KhD" secondAttribute="centerX" id="8wZ-86-Loz"/>
@@ -102,7 +102,7 @@
                                     <constraint firstItem="2nq-f7-VJv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zVM-hR-KhD" secondAttribute="leading" constant="8" id="K3D-V0-FMC"/>
                                     <constraint firstItem="OBS-Bb-8X7" firstAttribute="top" secondItem="zVM-hR-KhD" secondAttribute="top" id="OQW-Pp-kCm"/>
                                     <constraint firstItem="2nq-f7-VJv" firstAttribute="top" secondItem="OBS-Bb-8X7" secondAttribute="bottom" id="Ry0-31-UcI"/>
-                                    <constraint firstAttribute="height" constant="50" id="ciF-GJ-UIa"/>
+                                    <constraint firstAttribute="height" constant="60" id="ciF-GJ-UIa"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2nq-f7-VJv" secondAttribute="trailing" constant="8" id="hRZ-Gu-eAM"/>
                                     <constraint firstItem="f2D-vT-xA6" firstAttribute="top" secondItem="2nq-f7-VJv" secondAttribute="bottom" constant="10" id="jIf-K0-qqM"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OBS-Bb-8X7" secondAttribute="trailing" constant="40" id="lB6-di-2Pv"/>
@@ -118,17 +118,17 @@
                             <constraint firstItem="bZ5-fg-Xa7" firstAttribute="leading" secondItem="dve-Fu-PMA" secondAttribute="leading" id="TRa-tV-TcW"/>
                             <constraint firstItem="zVM-hR-KhD" firstAttribute="leading" secondItem="dve-Fu-PMA" secondAttribute="leading" id="YoJ-Z7-9tq"/>
                             <constraint firstItem="dve-Fu-PMA" firstAttribute="bottom" secondItem="bZ5-fg-Xa7" secondAttribute="bottom" id="ZlZ-qO-vSx"/>
-                            <constraint firstItem="bZ5-fg-Xa7" firstAttribute="top" secondItem="dve-Fu-PMA" secondAttribute="top" constant="100" id="qE2-aV-89x"/>
+                            <constraint firstItem="bZ5-fg-Xa7" firstAttribute="top" secondItem="dve-Fu-PMA" secondAttribute="top" constant="110" id="qE2-aV-89x"/>
                             <constraint firstItem="dve-Fu-PMA" firstAttribute="trailing" secondItem="zVM-hR-KhD" secondAttribute="trailing" id="rDj-sS-mFR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dve-Fu-PMA"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="infoViewTopC" destination="I5h-g4-XEr" id="ULz-br-lZU"/>
                         <outlet property="selectedAreaLbl" destination="OBS-Bb-8X7" id="pqX-XA-yEb"/>
                         <outlet property="tempAndIcon" destination="f2D-vT-xA6" id="qiy-J6-xQ5"/>
                         <outlet property="temperatureLbl" destination="IM4-wJ-d2J" id="Krc-DN-SZT"/>
-                        <outlet property="testCst" destination="I5h-g4-XEr" id="ULz-br-lZU"/>
                         <outlet property="tvContainerTopC" destination="qE2-aV-89x" id="lQB-6f-ruP"/>
                         <outlet property="weatherDescriptionLbl" destination="2nq-f7-VJv" id="8yC-Nq-M1J"/>
                         <outlet property="weatherImgView" destination="Jov-nE-jhQ" id="SUO-vm-mB0"/>
@@ -143,7 +143,7 @@
             <objects>
                 <tableViewController id="2QQ-ca-ZAl" customClass="WeatherListTVC" customModule="forecast" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2pi-Hk-jUm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -213,6 +213,7 @@
                     </tableView>
                     <connections>
                         <outlet property="longerDescriptionLbl" destination="jGp-X6-sG4" id="JFM-Q7-bVU"/>
+                        <outlet property="tableviewHeader" destination="f5Z-VG-txT" id="WW0-RK-hx4"/>
                         <outlet property="weatherStandardChooser" destination="wtr-pz-Heb" id="Sue-2N-oHO"/>
                     </connections>
                 </tableViewController>

@@ -16,8 +16,10 @@ class WeatherVC: BaseVC, Blurrable {
     
     // MARK: - Properties
     // MARK: Outlets
-    @IBOutlet weak var testCst: NSLayoutConstraint!
+    @IBOutlet weak var infoViewTopC: NSLayoutConstraint!
     @IBOutlet weak var tvContainerTopC: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var tempAndIcon: UIStackView!
     @IBOutlet weak var selectedAreaLbl: UILabel!
     @IBOutlet weak var weatherDescriptionLbl: UILabel!
