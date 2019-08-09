@@ -83,14 +83,14 @@ class WeatherListTVC: UITableViewController {
 extension WeatherListTVC {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(scrollView.contentOffset.y)
+        guard let wVC = weatherVC else { return }
+        wVC.tempAndIcon.alpha = 1 - (scrollView.contentOffset.y / tableviewHeader.frame.size.height) //200
         
-        weatherVC?.tempAndIcon.alpha = 1 - (scrollView.contentOffset.y / tableviewHeader.frame.size.height) //200
-        
-        if 50 - scrollView.contentOffset.y < 0 {
+        if wVC.infoViewTopStartValue - scrollView.contentOffset.y < 0 {
             return
         } else {
-            weatherVC!.tvContainerTopC.constant = 110 - scrollView.contentOffset.y
-            weatherVC!.infoViewTopC.constant = 50 - scrollView.contentOffset.y
+            wVC.tvContainerTopC.constant = wVC.tvContainerTopStartValue - scrollView.contentOffset.y
+            wVC.infoViewTopC.constant = wVC.infoViewTopStartValue - scrollView.contentOffset.y
         }
     }
 }

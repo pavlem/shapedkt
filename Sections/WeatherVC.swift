@@ -34,6 +34,9 @@ class WeatherVC: BaseVC, Blurrable {
         return city + ", " + cName + " " + cFlag
     }
     
+    var infoViewTopStartValue = CGFloat(0.0)
+    var tvContainerTopStartValue = CGFloat(0.0)
+
     // MARK: - Overrides
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -54,6 +57,9 @@ class WeatherVC: BaseVC, Blurrable {
                 }
             }
         }
+        
+        infoViewTopStartValue = infoViewTopC.constant
+        tvContainerTopStartValue = tvContainerTopC.constant
     }
 
     override func viewWillDisappear(_ animated: Bool) {
