@@ -229,7 +229,7 @@ extension CurrentWeatherViewModel {
         if isMetric {
             return String(CurrentWeatherViewModel.getTempInC(fromKelvin: temp)) + " º"
         }
-        return String(CurrentWeatherViewModel.getTempInF(fromKelvin: temp)) + " °F"
+        return String(CurrentWeatherViewModel.getTempInF(fromKelvin: temp)) + " ºF"
     }
     
     static func getTempInF(fromKelvin tempInK: Double) -> Int {
@@ -280,7 +280,7 @@ extension CurrentWeatherViewModel {
 
     static func get(windSpeedDirection: Double?) -> String? {
         guard let windSpeedDirection = windSpeedDirection else { return nil }
-        return "WindSpeedDirectionIs".localized + " " + String(windSpeedDirection)
+        return "WindSpeedDirectionIs".localized + " " + String(windSpeedDirection) + " º"
     }
 }
 

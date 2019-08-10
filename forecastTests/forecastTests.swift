@@ -25,11 +25,11 @@ class forecastTests: XCTestCase {
 extension forecastTests {
     func testGetTemperature() {
         XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 300.0, isMetric: true) == "27 º", "🍊🍊, testGetTemperature not ok")
-        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 300.0, isMetric: false) == "80 °F", "🍊🍊, testGetTemperature not ok")
+        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 300.0, isMetric: false) == "80 ºF", "🍊🍊, testGetTemperature not ok")
         XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 400.0, isMetric: true) == "127 º", "🍊🍊, testGetTemperature not ok")
-        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 400.0, isMetric: false) == "260 °F", "🍊🍊, testGetTemperature not ok")
+        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 400.0, isMetric: false) == "260 ºF", "🍊🍊, testGetTemperature not ok")
         XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 200.0, isMetric: true) == "-73 º", "🍊🍊, testGetTemperature not ok")
-        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 200.0, isMetric: false) == "-100 °F", "🍊🍊, testGetTemperature not ok")
+        XCTAssert(CurrentWeatherViewModel.getTemperature(tempInKelvin: 200.0, isMetric: false) == "-100 ºF", "🍊🍊, testGetTemperature not ok")
     }
     
     func testGetTempInF() {
@@ -80,14 +80,14 @@ extension forecastTests {
             XCTAssert(weatherVM.tInC == "13 º", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.tInCMax == "15 º", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.tInCMin == "11 º", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.tInF == "55 °F", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.tInFMax == "59 °F", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.tInFMin == "52 °F", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInF == "55 ºF", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInFMax == "59 ºF", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.tInFMin == "52 ºF", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.pressure == "Pressure: 1020.0 hPa", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.humidity == "Humidity: 82.0 %", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.windSpeedMetric == "1.0 m/s", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.windSpeedImperial == "2.24 MPH", "🍊🍊, testWeatherVM not ok")
-            XCTAssert(weatherVM.windSpeedDirection == "Wind Speed Direction: 270.0", "🍊🍊, testWeatherVM not ok")
+            XCTAssert(weatherVM.windSpeedDirection == "Wind Speed Direction: 270.0 º", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.clouds == "Cloudiness: None", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.cityName == "City Name: Brasilia", "🍊🍊, testWeatherVM not ok")
             XCTAssert(weatherVM.sunrise == "Sunrise: 11:36", "🍊🍊, testWeatherVM not ok")

@@ -43,6 +43,7 @@
 		8E471BC722D47CCC008F9273 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E471BC922D47CCC008F9273 /* Localizable.strings */; };
 		8E471BCC22D518FE008F9273 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471BCB22D518FE008F9273 /* UINavigationController+Extension.swift */; };
 		8E471BCF22D51F35008F9273 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471BCE22D51F35008F9273 /* CurrentWeatherViewModel.swift */; };
+		8E4E56E722FEDD7600591CB4 /* BlockingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E56E622FEDD7600591CB4 /* BlockingScreen.swift */; };
 		8E64F3CF22F17C680055EBEB /* weatherMOC.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E64F3CD22F17C680055EBEB /* weatherMOC.json */; };
 		8E64F3D022F17C680055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
 		8E64F3DA22F180730055EBEB /* weatherMOC.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E64F3CD22F17C680055EBEB /* weatherMOC.json */; };
@@ -172,6 +173,7 @@
 		8E471BCA22D47CD1008F9273 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8E471BCB22D518FE008F9273 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		8E471BCE22D51F35008F9273 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		8E4E56E622FEDD7600591CB4 /* BlockingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScreen.swift; sourceTree = "<group>"; };
 		8E64F3CD22F17C680055EBEB /* weatherMOC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weatherMOC.json; sourceTree = "<group>"; };
 		8E64F3CE22F17C680055EBEB /* MOCHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOCHelper.swift; sourceTree = "<group>"; };
 		8E7D1E7222FC6E770005A9A0 /* WeatherListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListCell.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				8EF6EB7322D292D1001CA073 /* ShapeAlert.swift */,
 				8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */,
 				8EC02E2E22E21E4E002B59C6 /* ArrowBackBtn.swift */,
+				8E4E56E622FEDD7600591CB4 /* BlockingScreen.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 				8EC02E3122E3332A002B59C6 /* UIImage+Extension.swift in Sources */,
 				8EF6EB6422D28EAE001CA073 /* UIColor+Extension.swift in Sources */,
 				8E3B2A8922FD7BAE007BC60E /* UITableView+Extension.swift in Sources */,
+				8E4E56E722FEDD7600591CB4 /* BlockingScreen.swift in Sources */,
 				8EF6EB7122D29184001CA073 /* String+Extension.swift in Sources */,
 				8E7D1E7322FC6E770005A9A0 /* WeatherListCell.swift in Sources */,
 				8EC02E2F22E21E4E002B59C6 /* ArrowBackBtn.swift in Sources */,

@@ -26,7 +26,6 @@ final class FindLocationVC: BaseVC {
         super.viewDidLoad()
         
         setUI()
-        
         output.viewIsReady()
     }
     
@@ -68,23 +67,7 @@ final class FindLocationVC: BaseVC {
         let touchPoint = gesture.location(in: self.mapView)
         let newCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
         self.output.locationSelected(at: newCoordinate)
-        
-        
-        //==============================
-//        let weatherVC = UIStoryboard.weatherVC
-////        weatherVC.currentWeatherViewModel = currentWeatherViewModel
-//
-//        let img = self.view.takeScreenshot()
-//        weatherVC.snapshotImg = img
-//
-//        weatherVC.modalPresentationStyle = .overCurrentContext
-//        //            weatherVC.view.backgroundColor = UIColor.clear
-//        weatherVC.providesPresentationContextTransitionStyle = true
-//        weatherVC.definesPresentationContext = true
-//        weatherVC.modalPresentationStyle = .overCurrentContext
-//        //            self.navigationController?.pushViewController(weatherVC, animated: true)
-//        self.navigationController?.customPush(weatherVC)
-        //==============================
+        BlockingScreen.start()
     }
 }
 
@@ -110,32 +93,12 @@ extension FindLocationVC: FindLocationPresenterOutput {
         
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            
+            BlockingScreen.stop()
+
             let weatherVC = UIStoryboard.weatherVC
             weatherVC.currentWeatherViewModel = currentWeatherViewModel
-            
-            let img = self.view.takeScreenshot()
-            weatherVC.backgroundImg = img
-//            weatherVC.view.backgroundColor = UIColor.clear
-//            weatherVC.providesPresentationContextTransitionStyle = true
-//            weatherVC.definesPresentationContext = true
-//            weatherVC.modalPresentationStyle = .overCurrentContext
+            weatherVC.backgroundImg = self.view.takeScreenshot()
             self.navigationController?.customPush(weatherVC)
-            
-            
-//            weatherVC.view.backgroundColor = UIColor.clear
-//            weatherVC.providesPresentationContextTransitionStyle = true
-//            weatherVC.definesPresentationContext = true
-//            weatherVC.modalPresentationStyle = .overCurrentContext
-////            weatherVC.modalTransitionStyle = .crossDissolve
-//                self.navigationController?.present(weather/VC, animated: true, completion: nil)
         }
     }
 }
-
-
-
-
-
-// TODO: move to extension
-
