@@ -49,7 +49,6 @@
 		8E64F3DA22F180730055EBEB /* weatherMOC.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E64F3CD22F17C680055EBEB /* weatherMOC.json */; };
 		8E64F3DB22F180730055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
 		8E64F3DC22F181270055EBEB /* weatherMOC.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E64F3CD22F17C680055EBEB /* weatherMOC.json */; };
-		8E64F3DD22F1812A0055EBEB /* MOCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64F3CE22F17C680055EBEB /* MOCHelper.swift */; };
 		8E7D1E7322FC6E770005A9A0 /* WeatherListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D1E7222FC6E770005A9A0 /* WeatherListCell.swift */; };
 		8EBC340B22FC11C000C5DF0F /* MeasuringSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBC340A22FC11C000C5DF0F /* MeasuringSystem.swift */; };
 		8EC02E2D22E21E08002B59C6 /* ArrowBackBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC02E2C22E21E08002B59C6 /* ArrowBackBtnView.swift */; };
@@ -771,7 +770,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3689B232221C045800E50ED5 /* CurrentWeather.swift in Sources */,
-				8E64F3DD22F1812A0055EBEB /* MOCHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
